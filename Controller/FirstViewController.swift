@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  CocktailRecipes
 //
 //  Created by Jan Gundorf on 07/06/2020.
@@ -8,13 +8,16 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+   
 
 
-}
+    }
 
+   // func functionGetIngredientByID(ingredientID: Int, completionhandler: @escaping (_ result: Bool, _ ingreee: Ingredients?, _ error: String?) -> Void) -> URLSessionDataTask

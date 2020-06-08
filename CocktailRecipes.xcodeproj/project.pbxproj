@@ -17,6 +17,11 @@
 		FA4AF00D248CCE2600A51CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4AF00B248CCE2600A51CE9 /* LaunchScreen.storyboard */; };
 		FA4AF018248CCE2700A51CE9 /* CocktailRecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF017248CCE2700A51CE9 /* CocktailRecipesTests.swift */; };
 		FA4AF023248CCE2700A51CE9 /* CocktailRecipesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF022248CCE2700A51CE9 /* CocktailRecipesUITests.swift */; };
+		FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */; };
+		FA4AF038248D74D200A51CE9 /* DrinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF037248D74D200A51CE9 /* DrinksCell.swift */; };
+		FA4AF03A248D844900A51CE9 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF039248D844900A51CE9 /* Drinks.swift */; };
+		FAF71BDE248EB02A0036100E /* FilterByAlcoholResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */; };
+		FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		FA4AF01E248CCE2700A51CE9 /* CocktailRecipesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailRecipesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4AF022248CCE2700A51CE9 /* CocktailRecipesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailRecipesUITests.swift; sourceTree = "<group>"; };
 		FA4AF024248CCE2700A51CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksAPI.swift; sourceTree = "<group>"; };
+		FA4AF037248D74D200A51CE9 /* DrinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCell.swift; sourceTree = "<group>"; };
+		FA4AF039248D844900A51CE9 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByAlcoholResponse.swift; sourceTree = "<group>"; };
+		FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpIngredientsByIDResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,9 @@
 		FA4AEFEF248CCE2300A51CE9 = {
 			isa = PBXGroup;
 			children = (
+				FA4AF032248CDE8F00A51CE9 /* Model */,
+				FA4AF031248CDE7E00A51CE9 /* Controller */,
+				FA4AF030248CDE7700A51CE9 /* VIew */,
 				FA4AEFFA248CCE2300A51CE9 /* CocktailRecipes */,
 				FA4AF016248CCE2700A51CE9 /* CocktailRecipesTests */,
 				FA4AF021248CCE2700A51CE9 /* CocktailRecipesUITests */,
@@ -105,8 +118,6 @@
 			children = (
 				FA4AEFFB248CCE2300A51CE9 /* AppDelegate.swift */,
 				FA4AEFFD248CCE2300A51CE9 /* SceneDelegate.swift */,
-				FA4AEFFF248CCE2300A51CE9 /* FirstViewController.swift */,
-				FA4AF001248CCE2300A51CE9 /* SecondViewController.swift */,
 				FA4AF003248CCE2300A51CE9 /* Main.storyboard */,
 				FA4AF009248CCE2600A51CE9 /* Assets.xcassets */,
 				FA4AF00B248CCE2600A51CE9 /* LaunchScreen.storyboard */,
@@ -132,6 +143,34 @@
 				FA4AF024248CCE2700A51CE9 /* Info.plist */,
 			);
 			path = CocktailRecipesUITests;
+			sourceTree = "<group>";
+		};
+		FA4AF030248CDE7700A51CE9 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				FA4AF037248D74D200A51CE9 /* DrinksCell.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		FA4AF031248CDE7E00A51CE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA4AEFFF248CCE2300A51CE9 /* FirstViewController.swift */,
+				FA4AF001248CCE2300A51CE9 /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA4AF032248CDE8F00A51CE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */,
+				FA4AF039248D844900A51CE9 /* Drinks.swift */,
+				FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */,
+				FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,10 +305,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4AF008248CCE2300A51CE9 /* CocktailRecipes.xcdatamodeld in Sources */,
+				FAF71BDE248EB02A0036100E /* FilterByAlcoholResponse.swift in Sources */,
+				FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */,
+				FA4AF03A248D844900A51CE9 /* Drinks.swift in Sources */,
 				FA4AF002248CCE2300A51CE9 /* SecondViewController.swift in Sources */,
 				FA4AF000248CCE2300A51CE9 /* FirstViewController.swift in Sources */,
 				FA4AEFFC248CCE2300A51CE9 /* AppDelegate.swift in Sources */,
+				FA4AF038248D74D200A51CE9 /* DrinksCell.swift in Sources */,
 				FA4AEFFE248CCE2300A51CE9 /* SceneDelegate.swift in Sources */,
+				FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.gnresound.CocktailRecipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,7 +514,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.gnresound.CocktailRecipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
