@@ -13,7 +13,7 @@ class Drinks
 {
     //let fetchingNumberOfStudents: Int = 100
     static let sharedArray = Drinks()
-    var fetchedIngredients: [Ingredients]?
-    var fetchedDrinks: [FilterByAlcoholResponse.Drinks]?
+    var fetchedIngredients: [DrinkIngredients]?
+    var fetchedDrinks: [FilterByAlcoholResponse.Drink]?
 
 }

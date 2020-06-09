@@ -31,9 +31,7 @@ import Foundation
 import UIKit
 
 class DrinksAPI {
-    
-    //"https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=552
-    //"https://the-cocktail-db.p.rapidapi.com/lookup.php/?i=552"
+
     // MARK: Cocktail Constants
     struct Constants {
         static let CocktailScheme = "https"
@@ -160,6 +158,21 @@ class DrinksAPI {
             let decoder = JSONDecoder()
             let ingredientsByID = try! decoder.decode(LookUpIngredientsByIDResponse.self, from: data)
             completionHandler(ingredientsByID, nil)
+        }
+        task.resume()
+    }
+    
+    func lookUpCocktailByIDRequest(id: Int, completionHandler: @escaping (LookUpCocktailByIDResponse?, Error?) -> Void) {
+
+        let request = createDrinksRequest(MyUrl: Endpoint.lookUpCocktailByID(id).url)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, error)
+                return
+            }
+            let decoder = JSONDecoder()
+            let cocktailByID = try! decoder.decode(LookUpCocktailByIDResponse.self, from: data)
+            completionHandler(cocktailByID, nil)
         }
         task.resume()
     }

@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  DrinksViewController.swift
 //  CocktailRecipes
 //
 //  Created by Jan Gundorf on 07/06/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class DrinksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -43,14 +43,13 @@ class SecondViewController: UIViewController {
          self.tableView?.reloadData()
              }
         }
-    
     }
 
 
 
 
 
-extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
+extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -70,16 +69,42 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinksCell") as! DrinksCell
         let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
         cell.drinkName.text = drink.DrinkStr
-    //    cell.name.text = "\(drink.  ?? " ")  \(drink.lastName ?? " ")"
+        
+        let url = URL(string: drink.DrinkThumbStr)
+        cell.drinkImage.load(url: url!)
         return cell
     }
+    
+    // method to run when table view cell is tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let url = Helpers.sharedHelper.validateStringToURL(urlString: StudentInformations.sharedArray.lastFetched![(indexPath).row].mediaURL!)
-//        if (url != nil)
-//        {
-//          UIApplication.shared.open(url!)
-//        }
-//    }
+        // Segue to the second view controller
+        self.performSegue(withIdentifier: "segueShowNavigation", sender: self)
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueShowNavigation" {
+            if let destVC = segue.destination as? UINavigationController,
+                let drinkViewController = destVC.topViewController as? DrinkViewController {
+             if let indexPath = tableView.indexPathForSelectedRow {
+                    drinkViewController.drink = Drinks.sharedArray.fetchedDrinks![(indexPath).row]
+                }
+            }
+        }
+    }
 }
 
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}

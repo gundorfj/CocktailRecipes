@@ -13,6 +13,7 @@ import UIKit
 class DrinksCell: UITableViewCell {
         
     @IBOutlet weak var drinkName: UILabel!
+    @IBOutlet weak var drinkImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

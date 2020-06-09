@@ -10,13 +10,13 @@ import Foundation
 
 struct FilterByAlcoholResponse: Codable {
 
-    let Drinks: [Drinks]?
+    let Drinks: [Drink]?
 
     enum CodingKeys: String, CodingKey {
         case Drinks = "drinks"
     }
     
-    struct Drinks: Codable {
+    struct Drink: Codable {
 
         let DrinkStr : String
         let DrinkThumbStr : String

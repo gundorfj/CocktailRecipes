@@ -10,14 +10,14 @@ import Foundation
 
 struct LookUpIngredientsByIDResponse: Codable {
 
-    var Ingredients: [Ingredients]?
+    var Ingredients: [DrinkIngredients]?
 
     enum CodingKeys: String, CodingKey {
         case Ingredients = "ingredients"
     }
 }
 
-struct Ingredients: Codable {
+struct DrinkIngredients: Codable {
 
      let IngredientID : String
      let IngredientStr : String
@@ -46,16 +46,5 @@ struct Ingredients: Codable {
          AlcoholStr = try container.decodeIfPresent(String.self, forKey: .AlcoholStr) ?? ""
          ABVStr = try container.decodeIfPresent(String.self, forKey: .ABVStr) ?? ""
      }
-     
-//     func encode(to encoder: Encoder) throws
-//     {
-//         var container = encoder.container(keyedBy: CodingKeys.self)
-//         try container.encode(IngredientID, forKey: .IngredientID)
-//         try container.encode(IngredientStr, forKey: .IngredientStr)
-//         try container.encode(DescriptionStr, forKey: .DescriptionStr)
-//         try container.encode(TypeStr, forKey: .TypeStr)
-//         try container.encode(AlcoholStr, forKey: .AlcoholStr)
-//         try container.encode(ABVStr, forKey: .ABVStr)
-//     }
  }
 
