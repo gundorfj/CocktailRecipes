@@ -20,6 +20,7 @@
 		FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */; };
 		FA4AF038248D74D200A51CE9 /* DrinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF037248D74D200A51CE9 /* DrinksCell.swift */; };
 		FA4AF03A248D844900A51CE9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF039248D844900A51CE9 /* Drink.swift */; };
+		FAB57E092490FA6100F4278C /* UITableview+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57E082490FA6100F4278C /* UITableview+extension.swift */; };
 		FAE16125249016E900B792F4 /* LookUpCocktailByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */; };
 		FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */; };
 		FAE97E0D248FC2A5005685B9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE97E0C248FC2A5005685B9 /* Helper.swift */; };
@@ -65,6 +66,7 @@
 		FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksAPI.swift; sourceTree = "<group>"; };
 		FA4AF037248D74D200A51CE9 /* DrinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCell.swift; sourceTree = "<group>"; };
 		FA4AF039248D844900A51CE9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		FAB57E082490FA6100F4278C /* UITableview+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableview+extension.swift"; sourceTree = "<group>"; };
 		FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpCocktailByIDResponse.swift; sourceTree = "<group>"; };
 		FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewController.swift; sourceTree = "<group>"; };
 		FAE97E0C248FC2A5005685B9 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4AF037248D74D200A51CE9 /* DrinksCell.swift */,
+				FAB57E082490FA6100F4278C /* UITableview+extension.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				FAE97E0D248FC2A5005685B9 /* Helper.swift in Sources */,
 				FAF71BE2248EDE760036100E /* CategoryViewController.swift in Sources */,
 				FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */,
+				FAB57E092490FA6100F4278C /* UITableview+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

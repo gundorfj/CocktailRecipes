@@ -19,6 +19,7 @@ class DrinksViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addTopBounceAreaView()
         // Do any additional setup after loading the view.
     }
 
@@ -72,6 +73,21 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
         
         let url = URL(string: drink.DrinkThumbStr)
         cell.drinkImage.load(url: url!)
+        
+        let oddEven = (indexPath).row  % 2 == 0
+        
+        switch oddEven {
+
+        case true:
+            self.view.backgroundColor = UIColor(red: 0.3529, green: 0.7608, blue: 0.8471, alpha: 1.0)
+            cell.backgroundColor = UIColor(red: 0.3529, green: 0.7608, blue: 0.8471, alpha: 1.0)
+            cell.textLabel?.textColor = UIColor.white
+        case false:
+            self.view.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
+            cell.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
+            cell.textLabel?.textColor = UIColor.white
+        }
+        
         return cell
     }
     
