@@ -20,6 +20,9 @@
 		FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */; };
 		FA4AF038248D74D200A51CE9 /* DrinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF037248D74D200A51CE9 /* DrinksCell.swift */; };
 		FA4AF03A248D844900A51CE9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF039248D844900A51CE9 /* Drink.swift */; };
+		FA5734532491695C006991BD /* ListIngredientsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5734522491695C006991BD /* ListIngredientsResponse.swift */; };
+		FA57345524916DC9006991BD /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57345424916DC9006991BD /* IngredientCell.swift */; };
+		FA57345724918034006991BD /* DrinksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57345624918034006991BD /* DrinksTableView.swift */; };
 		FAB57E092490FA6100F4278C /* UITableview+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57E082490FA6100F4278C /* UITableview+extension.swift */; };
 		FAE16125249016E900B792F4 /* LookUpCocktailByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */; };
 		FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */; };
@@ -66,6 +69,9 @@
 		FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksAPI.swift; sourceTree = "<group>"; };
 		FA4AF037248D74D200A51CE9 /* DrinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksCell.swift; sourceTree = "<group>"; };
 		FA4AF039248D844900A51CE9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		FA5734522491695C006991BD /* ListIngredientsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIngredientsResponse.swift; sourceTree = "<group>"; };
+		FA57345424916DC9006991BD /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		FA57345624918034006991BD /* DrinksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTableView.swift; sourceTree = "<group>"; };
 		FAB57E082490FA6100F4278C /* UITableview+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableview+extension.swift"; sourceTree = "<group>"; };
 		FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpCocktailByIDResponse.swift; sourceTree = "<group>"; };
 		FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 			children = (
 				FA4AF037248D74D200A51CE9 /* DrinksCell.swift */,
 				FAB57E082490FA6100F4278C /* UITableview+extension.swift */,
+				FA57345424916DC9006991BD /* IngredientCell.swift */,
+				FA57345624918034006991BD /* DrinksTableView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 				FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */,
 				FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */,
 				FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */,
+				FA5734522491695C006991BD /* ListIngredientsResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +332,8 @@
 				FAF71BDE248EB02A0036100E /* FilterByAlcoholResponse.swift in Sources */,
 				FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */,
 				FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */,
+				FA57345724918034006991BD /* DrinksTableView.swift in Sources */,
+				FA57345524916DC9006991BD /* IngredientCell.swift in Sources */,
 				FA4AF03A248D844900A51CE9 /* Drink.swift in Sources */,
 				FA4AF002248CCE2300A51CE9 /* DrinksViewController.swift in Sources */,
 				FA4AF000248CCE2300A51CE9 /* FavoritesViewController.swift in Sources */,
@@ -334,6 +345,7 @@
 				FAF71BE2248EDE760036100E /* CategoryViewController.swift in Sources */,
 				FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */,
 				FAB57E092490FA6100F4278C /* UITableview+extension.swift in Sources */,
+				FA5734532491695C006991BD /* ListIngredientsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

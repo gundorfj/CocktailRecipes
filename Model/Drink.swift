@@ -15,5 +15,5 @@ class Drinks
     static let sharedArray = Drinks()
     var fetchedIngredients: [DrinkIngredients]?
     var fetchedDrinks: [FilterByAlcoholResponse.Drink]?
-
+    var fetchedCompleteIngrediensList: [ListIngredientsResponse.Ingredient]?
 }

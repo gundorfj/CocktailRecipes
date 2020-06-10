@@ -12,7 +12,7 @@ class DrinksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var ingredientsDictionary = [String: [String]]()
+    var ingredientsDictionary = [String: [FilterByAlcoholResponse.Drink]]()
     var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
     
@@ -22,29 +22,34 @@ class DrinksViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.addTopBounceAreaView()
+   //     tableView.addTopBounceAreaView()
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        _ = DrinksAPI.sharedInstance().lookUpIngredientsByIDRequest(id: 552, completionHandler: handlelookUpIngredientsByIDResponse(ingredients:error:))
         
+        if ((Drinks.sharedArray.fetchedDrinks?.isEmpty) == nil)
+          {
         _ = DrinksAPI.sharedInstance().filterByAlcoholRequest(alcoType: "Alcoholic", completionHandler: handleFilterByAlcoholResponse(differentDrinks:error:))
-        
+          }
     }
     
     func handleFilterByAlcoholResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
-        Drinks.sharedArray.fetchedDrinks = differentDrinks?.Drinks
+        Drinks.sharedArray.fetchedDrinks = differentDrinks?.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
+            let drink1 = Drink1.DrinkStr
+        let drink2 = Drink2.DrinkStr
+        return (drink1.localizedCaseInsensitiveCompare(drink2) == .orderedAscending)})
+        
         
         
         for drink in Drinks.sharedArray.fetchedDrinks! {
             let drinkKey = String(drink.DrinkStr.prefix(1))
                 if var drinkValues = ingredientsDictionary[drinkKey] {
-                    drinkValues.append(drink.DrinkStr)
+                    drinkValues.append(drink)
                     ingredientsDictionary[drinkKey] = drinkValues
                 } else {
-                    ingredientsDictionary[drinkKey] = [drink.DrinkStr]
+                    ingredientsDictionary[drinkKey] = [drink]
                 }
         }
         
@@ -74,49 +79,42 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
         // 1
         return ingredientsTitles.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 2
         let ingredientsKey = ingredientsTitles[section]
         if let ingredientsValues = ingredientsDictionary[ingredientsKey] {
             return ingredientsValues.count
         }
-            
+
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ingredientsTitles[section]
     }
-    
+
      func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return ingredientsTitles
     }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//        let lastfetched = Drinks.sharedArray.fetchedDrinks
-//
-//        if (lastfetched == nil)
-//        {
-//            return 0
-//        }
-//        else
-//        {
-//            return lastfetched!.count
-//        }
-//    }
+
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinksCell") as! DrinksCell
-        let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
-        cell.drinkName.text = drink.DrinkStr
-        
-        let url = URL(string: drink.DrinkThumbStr)
-        cell.drinkImage.load(url: url!)
-        
+       // let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
+
+        let drinkKey = ingredientsTitles[indexPath.section]
+
+        if let drinkValues = ingredientsDictionary[drinkKey] {
+            cell.drinkName.text = drinkValues[indexPath.row].DrinkStr
+            let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
+            cell.drinkImage.load(url: url!)
+        }
+
+
+
         let oddEven = (indexPath).row  % 2 == 0
-        
+
         switch oddEven {
 
         case true:
@@ -128,10 +126,10 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
             cell.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
             cell.textLabel?.textColor = UIColor.white
         }
-        
+
         return cell
     }
-    
+
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -139,7 +137,7 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "segueShowNavigation", sender: self)
     }
 
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueShowNavigation" {
             if let destVC = segue.destination as? UINavigationController,

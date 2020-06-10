@@ -162,6 +162,21 @@ class DrinksAPI {
         task.resume()
     }
     
+    func listIngredientsRequest(completionHandler: @escaping (ListIngredientsResponse?, Error?) -> Void) {
+
+        let request = createDrinksRequest(MyUrl: Endpoint.listByIngredients.url)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, error)
+                return
+            }
+            let decoder = JSONDecoder()
+            let ingredientsList = try! decoder.decode(ListIngredientsResponse.self, from: data)
+            completionHandler(ingredientsList, nil)
+        }
+        task.resume()
+    }
+    
     func lookUpCocktailByIDRequest(id: Int, completionHandler: @escaping (LookUpCocktailByIDResponse?, Error?) -> Void) {
 
         let request = createDrinksRequest(MyUrl: Endpoint.lookUpCocktailByID(id).url)

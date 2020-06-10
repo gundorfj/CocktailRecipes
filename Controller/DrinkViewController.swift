@@ -15,10 +15,10 @@ class DrinkViewController: UIViewController
     @IBOutlet weak var Cocktail: UILabel!
     @IBOutlet weak var CocktailImageView: UIImageView!
     @IBOutlet weak var InstructionsLabel: UILabel!
+    
     var ingredients: [LookUpIngredientsByIDResponse]?
-
     var drink: FilterByAlcoholResponse.Drink?
-  //  var addButton: UIBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(dismiss))
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
