@@ -18,10 +18,14 @@ class DrinkViewController: UIViewController
     var ingredients: [LookUpIngredientsByIDResponse]?
 
     var drink: FilterByAlcoholResponse.Drink?
-
+  //  var addButton: UIBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(dismiss))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let backButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action:  #selector(dismiss))
+
+        self.navigationItem.rightBarButtonItem = backButton
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +33,8 @@ class DrinkViewController: UIViewController
         
         let id = Int(drink!.DrinkID)
         _ = DrinksAPI.sharedInstance().lookUpCocktailByIDRequest(id: id!, completionHandler:handleLookUpCocktailByIDRequestResponse  (drinkInformation:error:))
+        
+
     }
     
     func handleLookUpCocktailByIDRequestResponse(drinkInformation: LookUpCocktailByIDResponse?, error: Error?)
@@ -40,6 +46,10 @@ class DrinkViewController: UIViewController
         let url = URL(string: (drinkInformation?.CockTail?[0].DrinkThumbStr)!)!
         CocktailImageView.load(url: url)
     }
+ 
     
+    @objc func dismiss(sender: AnyObject) {
+        self.navigationController?.dismiss(animated: true, completion:nil)
+    }
 }
 

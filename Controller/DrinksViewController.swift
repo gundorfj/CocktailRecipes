@@ -20,7 +20,7 @@ class DrinksViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.addTopBounceAreaView()
-        // Do any additional setup after loading the view.
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
