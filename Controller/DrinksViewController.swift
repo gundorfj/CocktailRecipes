@@ -12,8 +12,11 @@ class DrinksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    var ingredientsDictionary = [String: [String]]()
+    var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,21 @@ class DrinksViewController: UIViewController {
     
     func handleFilterByAlcoholResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
         Drinks.sharedArray.fetchedDrinks = differentDrinks?.Drinks
+        
+        
+        for drink in Drinks.sharedArray.fetchedDrinks! {
+            let drinkKey = String(drink.DrinkStr.prefix(1))
+                if var drinkValues = ingredientsDictionary[drinkKey] {
+                    drinkValues.append(drink.DrinkStr)
+                    ingredientsDictionary[drinkKey] = drinkValues
+                } else {
+                    ingredientsDictionary[drinkKey] = [drink.DrinkStr]
+                }
+        }
+        
+        ingredientsTitles = [String](ingredientsDictionary.keys)
+        ingredientsTitles = ingredientsTitles.sorted(by: { $0 < $1 })
+        
         DispatchQueue.main.async {
          self.tableView?.reloadData()
              }
@@ -52,19 +70,42 @@ class DrinksViewController: UIViewController {
 
 extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        let lastfetched = Drinks.sharedArray.fetchedDrinks
-
-        if (lastfetched == nil)
-        {
-            return 0
-        }
-        else
-        {
-            return lastfetched!.count
-        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // 1
+        return ingredientsTitles.count
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 2
+        let ingredientsKey = ingredientsTitles[section]
+        if let ingredientsValues = ingredientsDictionary[ingredientsKey] {
+            return ingredientsValues.count
+        }
+            
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ingredientsTitles[section]
+    }
+    
+     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return ingredientsTitles
+    }
+    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        let lastfetched = Drinks.sharedArray.fetchedDrinks
+//
+//        if (lastfetched == nil)
+//        {
+//            return 0
+//        }
+//        else
+//        {
+//            return lastfetched!.count
+//        }
+//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinksCell") as! DrinksCell
