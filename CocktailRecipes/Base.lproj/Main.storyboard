@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FavoritesViewController" customModule="CocktailRecipes" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="starDisabled" selectedImage="starEnabled" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Drinks" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Drinks" image="glass" selectedImage="glass" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="tableView" destination="DQw-98-Fzc" id="ftq-Tu-7SI"/>
                         <segue destination="V6L-7W-jQF" kind="showDetail" identifier="segueShowNavigation" id="A0V-dd-irK"/>
@@ -256,7 +256,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TnT-tg-M16"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Category" id="aaF-o5-er2"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="categoryDisabled" selectedImage="categoryEnabled" id="aaF-o5-er2"/>
                     <connections>
                         <outlet property="tableView" destination="gfx-c9-Sa9" id="ePK-eu-M7s"/>
                     </connections>
@@ -286,6 +286,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="categoryDisabled" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="categoryEnabled" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="glass" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="starDisabled" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="starEnabled" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>
