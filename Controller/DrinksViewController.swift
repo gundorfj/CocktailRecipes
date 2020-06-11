@@ -16,20 +16,22 @@ class DrinksViewController: UIViewController {
     var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
     
-    
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-   //     tableView.addTopBounceAreaView()
 
+       refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+       refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+       tableView.addSubview(refreshControl)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if ((Drinks.sharedArray.fetchedDrinks?.isEmpty) == nil)
+        if ((Drinks.sharedArray.fetchedDrinks?.isEmpty) == nil || tableView.dataSource == nil)
           {
         _ = DrinksAPI.sharedInstance().filterByAlcoholRequest(alcoType: "Alcoholic", completionHandler: handleFilterByAlcoholResponse(differentDrinks:error:))
           }
@@ -40,8 +42,6 @@ class DrinksViewController: UIViewController {
             let drink1 = Drink1.DrinkStr
         let drink2 = Drink2.DrinkStr
         return (drink1.localizedCaseInsensitiveCompare(drink2) == .orderedAscending)})
-        
-        
         
         for drink in Drinks.sharedArray.fetchedDrinks! {
             let drinkKey = String(drink.DrinkStr.prefix(1))
@@ -58,6 +58,10 @@ class DrinksViewController: UIViewController {
         
         DispatchQueue.main.async {
          self.tableView?.reloadData()
+            if (self.refreshControl.isRefreshing)
+                {
+                    self.refreshControl.endRefreshing()
+                }
              }
         }
     
@@ -67,7 +71,18 @@ class DrinksViewController: UIViewController {
          self.tableView?.reloadData()
              }
         }
+    
+    
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.ingredientsDictionary.removeAll()
+            self.ingredientsTitles.removeAll()
+            self.tableView?.reloadData()
+        }
+        
+        _ = DrinksAPI.sharedInstance().filterByAlcoholRequest(alcoType: "Alcoholic", completionHandler: handleFilterByAlcoholResponse(differentDrinks:error:))
     }
+}
 
 
 
