@@ -40,21 +40,21 @@ struct CockTailData: Codable {
     let InstructionsZHHANSStr : String?
     let InstructionsZHHANTStr : String?
     let DrinkThumbStr : String?
-    let Ingredient1Str : String?
-    let Ingredient2Str : String?
-    let Ingredient3Str : String?
-    let Ingredient4Str : String?
-    let Ingredient5Str : String?
-    let Ingredient6Str : String?
-    let Ingredient7Str : String?
-    let Ingredient8Str : String?
-    let Ingredient9Str : String?
-    let Ingredient10Str : String?
-    let Ingredient11Str : String?
-    let Ingredient12Str : String?
-    let Ingredient13Str : String?
-    let Ingredient14Str : String?
-    let Ingredient15Str : String?
+    let IngredientStr1 : String?
+    let IngredientStr2 : String?
+    let IngredientStr3 : String?
+    let IngredientStr4 : String?
+    let IngredientStr5 : String?
+    let IngredientStr6 : String?
+    let IngredientStr7 : String?
+    let IngredientStr8 : String?
+    let IngredientStr9 : String?
+    let IngredientStr10 : String?
+    let IngredientStr11 : String?
+    let IngredientStr12 : String?
+    let IngredientStr13 : String?
+    let IngredientStr14 : String?
+    let IngredientStr15 : String?
     let Measure1Str : String?
     let Measure2Str : String?
     let Measure3Str : String?
@@ -97,21 +97,21 @@ struct CockTailData: Codable {
         case InstructionsZHHANSStr = "strInstructionsZH-HANS"
         case InstructionsZHHANTStr = "strInstructionsZH-HANT"
         case DrinkThumbStr = "strDrinkThumb"
-        case Ingredient1Str = "strIngredient1"
-        case Ingredient2Str = "strIngredient2"
-        case Ingredient3Str = "strIngredient3"
-        case Ingredient4Str = "strIngredient4"
-        case Ingredient5Str = "strIngredient5"
-        case Ingredient6Str = "strIngredient6"
-        case Ingredient7Str = "strIngredient7"
-        case Ingredient8Str = "strIngredient8"
-        case Ingredient9Str = "strIngredient9"
-        case Ingredient10Str = "strIngredient10"
-        case Ingredient11Str = "strIngredient11"
-        case Ingredient12Str = "strIngredient12"
-        case Ingredient13Str = "strIngredient13"
-        case Ingredient14Str = "strIngredient14"
-        case Ingredient15Str = "strIngredient15"
+        case IngredientStr1 = "strIngredient1"
+        case IngredientStr2 = "strIngredient2"
+        case IngredientStr3 = "strIngredient3"
+        case IngredientStr4 = "strIngredient4"
+        case IngredientStr5 = "strIngredient5"
+        case IngredientStr6 = "strIngredient6"
+        case IngredientStr7 = "strIngredient7"
+        case IngredientStr8 = "strIngredient8"
+        case IngredientStr9 = "strIngredient9"
+        case IngredientStr10 = "strIngredient10"
+        case IngredientStr11 = "strIngredient11"
+        case IngredientStr12 = "strIngredient12"
+        case IngredientStr13 = "strIngredient13"
+        case IngredientStr14 = "strIngredient14"
+        case IngredientStr15 = "strIngredient15"
         case Measure1Str = "strMeasure1"
         case Measure2Str = "strMeasure2"
         case Measure3Str = "strMeasure3"
@@ -155,21 +155,21 @@ struct CockTailData: Codable {
         InstructionsZHHANSStr = try container.decodeIfPresent(String.self, forKey: .InstructionsZHHANSStr) ?? ""
         InstructionsZHHANTStr = try container.decodeIfPresent(String.self, forKey: .InstructionsZHHANTStr) ?? ""
         DrinkThumbStr = try container.decodeIfPresent(String.self, forKey: .DrinkThumbStr) ?? ""
-        Ingredient1Str = try container.decodeIfPresent(String.self, forKey: .Ingredient1Str) ?? ""
-        Ingredient2Str = try container.decodeIfPresent(String.self, forKey: .Ingredient2Str) ?? ""
-        Ingredient3Str = try container.decodeIfPresent(String.self, forKey: .Ingredient3Str) ?? ""
-        Ingredient4Str = try container.decodeIfPresent(String.self, forKey: .Ingredient4Str) ?? ""
-        Ingredient5Str = try container.decodeIfPresent(String.self, forKey: .Ingredient5Str) ?? ""
-        Ingredient6Str = try container.decodeIfPresent(String.self, forKey: .Ingredient6Str) ?? ""
-        Ingredient7Str = try container.decodeIfPresent(String.self, forKey: .Ingredient7Str) ?? ""
-        Ingredient8Str = try container.decodeIfPresent(String.self, forKey: .Ingredient8Str) ?? ""
-        Ingredient9Str = try container.decodeIfPresent(String.self, forKey: .Ingredient9Str) ?? ""
-        Ingredient10Str = try container.decodeIfPresent(String.self, forKey: .Ingredient10Str) ?? ""
-        Ingredient11Str = try container.decodeIfPresent(String.self, forKey: .Ingredient11Str) ?? ""
-        Ingredient12Str = try container.decodeIfPresent(String.self, forKey: .Ingredient12Str) ?? ""
-        Ingredient13Str = try container.decodeIfPresent(String.self, forKey: .Ingredient13Str) ?? ""
-        Ingredient14Str = try container.decodeIfPresent(String.self, forKey: .Ingredient14Str) ?? ""
-        Ingredient15Str = try container.decodeIfPresent(String.self, forKey: .Ingredient15Str) ?? ""
+        IngredientStr1 = try container.decodeIfPresent(String.self, forKey: .IngredientStr1) ?? ""
+        IngredientStr2 = try container.decodeIfPresent(String.self, forKey: .IngredientStr2) ?? ""
+        IngredientStr3 = try container.decodeIfPresent(String.self, forKey: .IngredientStr3) ?? ""
+        IngredientStr4 = try container.decodeIfPresent(String.self, forKey: .IngredientStr4) ?? ""
+        IngredientStr5 = try container.decodeIfPresent(String.self, forKey: .IngredientStr5) ?? ""
+        IngredientStr6 = try container.decodeIfPresent(String.self, forKey: .IngredientStr6) ?? ""
+        IngredientStr7 = try container.decodeIfPresent(String.self, forKey: .IngredientStr7) ?? ""
+        IngredientStr8 = try container.decodeIfPresent(String.self, forKey: .IngredientStr8) ?? ""
+        IngredientStr9 = try container.decodeIfPresent(String.self, forKey: .IngredientStr9) ?? ""
+        IngredientStr10 = try container.decodeIfPresent(String.self, forKey: .IngredientStr10) ?? ""
+        IngredientStr11 = try container.decodeIfPresent(String.self, forKey: .IngredientStr11) ?? ""
+        IngredientStr12 = try container.decodeIfPresent(String.self, forKey: .IngredientStr12) ?? ""
+        IngredientStr13 = try container.decodeIfPresent(String.self, forKey: .IngredientStr13) ?? ""
+        IngredientStr14 = try container.decodeIfPresent(String.self, forKey: .IngredientStr14) ?? ""
+        IngredientStr15 = try container.decodeIfPresent(String.self, forKey: .IngredientStr15) ?? ""
         Measure1Str = try container.decodeIfPresent(String.self, forKey: .Measure1Str) ?? ""
         Measure2Str = try container.decodeIfPresent(String.self, forKey: .Measure2Str) ?? ""
         Measure3Str = try container.decodeIfPresent(String.self, forKey: .Measure3Str) ?? ""

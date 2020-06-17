@@ -1,24 +1,24 @@
 //
-//  DrinksViewController.swift
+//  IngredientsDrinkViewController.swift
 //  CocktailRecipes
 //
-//  Created by Jan Gundorf on 07/06/2020.
+//  Created by Jan Gundorf on 17/06/2020.
 //  Copyright © 2020 Jan Gundorf. All rights reserved.
 //
 
 import UIKit
 
-class DrinksViewController: UIViewController {
-
+class IngredientsDrinkViewController: UIViewController
+{
+    
     @IBOutlet weak var tableView: UITableView!
 
     var ingredientsDictionary = [String: [FilterByAlcoholResponse.Drink]]()
     var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
-    
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -34,16 +34,10 @@ class DrinksViewController: UIViewController {
         
         if ((Drinks.sharedArray.fetchedDrinks?.isEmpty) == nil || tableView.dataSource == nil)
           {
-            if  (commonIngredient.isEmpty)
-            {
-                _ = DrinksAPI.sharedInstance().filterByAlcoholRequest(alcoType: "Alcoholic", completionHandler: handleFilterByAlcoholResponse(differentDrinks:error:))
-            }
-            else
-            {
-                _ = DrinksAPI.sharedInstance().searchByIngredientRequest(ingredientType: commonIngredient, completionHandler: handleSearchByIngredientResponse(differentDrinks:error:))
-            }
+                        _ = DrinksAPI.sharedInstance().searchByIngredientRequest(ingredientType: commonIngredient, completionHandler: handleSearchByIngredientResponse(differentDrinks:error:))
+           }
+            
         }
-    }
     
     func handleSearchByIngredientResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
         Drinks.sharedArray.fetchedDrinksByIngredient = differentDrinks?.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
@@ -51,35 +45,7 @@ class DrinksViewController: UIViewController {
         let drink2 = Drink2.DrinkStr
         return (drink1.localizedCaseInsensitiveCompare(drink2) == .orderedAscending)})
         
-        for drink in Drinks.sharedArray.fetchedDrinks! {
-            let drinkKey = String(drink.DrinkStr.prefix(1))
-                if var drinkValues = ingredientsDictionary[drinkKey] {
-                    drinkValues.append(drink)
-                    ingredientsDictionary[drinkKey] = drinkValues
-                } else {
-                    ingredientsDictionary[drinkKey] = [drink]
-                }
-        }
-        
-        ingredientsTitles = [String](ingredientsDictionary.keys)
-        ingredientsTitles = ingredientsTitles.sorted(by: { $0 < $1 })
-        
-        DispatchQueue.main.async {
-         self.tableView?.reloadData()
-            if (self.refreshControl.isRefreshing)
-                {
-                    self.refreshControl.endRefreshing()
-                }
-             }
-        }
-    
-    func handleFilterByAlcoholResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
-        Drinks.sharedArray.fetchedDrinks = differentDrinks?.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
-            let drink1 = Drink1.DrinkStr
-        let drink2 = Drink2.DrinkStr
-        return (drink1.localizedCaseInsensitiveCompare(drink2) == .orderedAscending)})
-        
-        for drink in Drinks.sharedArray.fetchedDrinks! {
+        for drink in Drinks.sharedArray.fetchedDrinksByIngredient! {
             let drinkKey = String(drink.DrinkStr.prefix(1))
                 if var drinkValues = ingredientsDictionary[drinkKey] {
                     drinkValues.append(drink)
@@ -115,8 +81,6 @@ class DrinksViewController: UIViewController {
             self.ingredientsTitles.removeAll()
             self.tableView?.reloadData()
         }
-        
-        _ = DrinksAPI.sharedInstance().filterByAlcoholRequest(alcoType: "Alcoholic", completionHandler: handleFilterByAlcoholResponse(differentDrinks:error:))
     }
 }
 
@@ -124,7 +88,7 @@ class DrinksViewController: UIViewController {
 
 
 
-extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
+extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // 1
@@ -151,7 +115,7 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinksCell") as! DrinksCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsDrinksCell") as! IngredientsDrinksCell
        // let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
 
         let drinkKey = ingredientsTitles[indexPath.section]
@@ -185,30 +149,17 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         // Segue to the second view controller
-        self.performSegue(withIdentifier: "segueShowDrinkNavigation", sender: self)
+        self.performSegue(withIdentifier: "ShowDrink", sender: self)
     }
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueShowDrinkNavigation" {
-            if let destVC = segue.destination as? UINavigationController,
-                let drinkViewController = destVC.topViewController as? DrinkViewController {
+        if segue.identifier == "ShowDrink" {
+            if let destVC = segue.destination as? DrinkViewController
+                {
              if let indexPath = tableView.indexPathForSelectedRow {
-                    drinkViewController.drink = Drinks.sharedArray.fetchedDrinks![(indexPath).row]
-                }
-            }
-        }
-    }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
+                let test = Drinks.sharedArray.fetchedDrinksByIngredient![(indexPath).row]
+                    destVC.drink = test
                 }
             }
         }

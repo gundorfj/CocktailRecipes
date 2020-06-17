@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CategoryViewController: UIViewController {
+class IngredientsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -64,7 +64,7 @@ class CategoryViewController: UIViewController {
     
 }
 
-extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // 1
@@ -121,19 +121,21 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         // Segue to the second view controller
- //       self.performSegue(withIdentifier: "segueShowNavigation", sender: self)
+        self.performSegue(withIdentifier: "segueShowCategoryNavigation", sender: self)
     }
 
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "segueShowNavigation" {
-//            if let destVC = segue.destination as? UINavigationController,
-//                let drinkViewController = destVC.topViewController as? DrinkViewController {
-//             if let indexPath = tableView.indexPathForSelectedRow {
-//                    drinkViewController.drink = Drinks.sharedArray.fetchedDrinks![(indexPath).row]
-//                }
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueShowCategoryNavigation" {
+            if let destVC = segue.destination as? UINavigationController,
+                let drinkViewController = destVC.topViewController as? IngredientsDrinkViewController {
+             if let indexPath = tableView.indexPathForSelectedRow {
+                
+                let ingredient = Drinks.sharedArray.fetchedCompleteIngrediensList![indexPath.row].IngredientStr
+                drinkViewController.commonIngredient = ingredient
+                }
+            }
+        }
+    }
 }
 

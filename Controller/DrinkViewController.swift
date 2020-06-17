@@ -15,6 +15,8 @@ class DrinkViewController: UIViewController
     @IBOutlet weak var Cocktail: UILabel!
     @IBOutlet weak var CocktailImageView: UIImageView!
     @IBOutlet weak var InstructionsLabel: UILabel!
+    @IBOutlet weak var IngredientsView: UIView!
+    @IBOutlet weak var IngredientsFrameView: UIView!
     
     var ingredients: [LookUpIngredientsByIDResponse]?
     var drink: FilterByAlcoholResponse.Drink?
@@ -26,6 +28,9 @@ class DrinkViewController: UIViewController
         let backButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action:  #selector(dismiss))
 
         self.navigationItem.rightBarButtonItem = backButton
+        
+   //     IngredientsFrameView.layer.borderWidth = 1.0
+    //    IngredientsFrameView.layer.borderColor = UIColor.black.cgColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,9 +44,19 @@ class DrinkViewController: UIViewController
     
     func handleLookUpCocktailByIDRequestResponse(drinkInformation: LookUpCocktailByIDResponse?, error: Error?)
     {
+        
+        let mirror = Mirror(reflecting: drinkInformation?.CockTail as Any)
+        
+        for case let (label?, value) in Mirror(reflecting: mirror)
+            .children.map({ ($0.label, $0.value) }) {
+            print("label: \(label), value: \(value)")
+        }
+        
         DispatchQueue.main.async {
             self.Cocktail.text = drinkInformation?.CockTail?[0].DrinkStr
-            self.InstructionsLabel.text = drinkInformation?.CockTail?[0].InstructionsStr        }
+            self.InstructionsLabel.text = drinkInformation?.CockTail?[0].InstructionsStr
+   
+        }
 
         let url = URL(string: (drinkInformation?.CockTail?[0].DrinkThumbStr)!)!
         CocktailImageView.load(url: url)

@@ -71,7 +71,7 @@ class DrinksAPI {
         case lookUpIngredient(Int)
         case lookUpRandomCocktail
         case lookUpCocktailByID(Int)
-
+        
         var url: URL {
             return URL(string: self.stringValue)!
         }
@@ -129,6 +129,23 @@ class DrinksAPI {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         return request
+    }
+    
+
+    
+    func searchByIngredientRequest(ingredientType: String, completionHandler: @escaping (FilterByAlcoholResponse?, Error?) -> Void) {
+        
+        let request = createDrinksRequest(MyUrl: Endpoint.searchByIngredient(ingredientType.encodeUrl()).url)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, error)
+                return
+            }
+            let decoder = JSONDecoder()
+            let ingredientDrinks = try! decoder.decode(FilterByAlcoholResponse.self, from: data)
+            completionHandler(ingredientDrinks, nil)
+        }
+        task.resume()
     }
     
     
@@ -190,5 +207,14 @@ class DrinksAPI {
             completionHandler(cocktailByID, nil)
         }
         task.resume()
+    }
+}
+
+
+extension String
+{
+    func encodeUrl() -> String
+    {
+        return self.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
     }
 }
