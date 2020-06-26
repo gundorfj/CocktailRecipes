@@ -18,6 +18,7 @@ class IngredientsDrinkViewController: UIViewController
     var ingredients: [LookUpIngredientsByIDResponse] = []
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
+   // var title: Title = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +28,30 @@ class IngredientsDrinkViewController: UIViewController
        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
        tableView.addSubview(refreshControl)
+        
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action:  #selector(dismiss))
+
+        self.navigationItem.rightBarButtonItem = closeButton
+        
+        title = commonIngredient;
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if ((Drinks.sharedArray.fetchedDrinks?.isEmpty) == nil || tableView.dataSource == nil)
+       
+        if (ingredientsDictionary.isEmpty == true || tableView.dataSource == nil)
           {
-                        _ = DrinksAPI.sharedInstance().searchByIngredientRequest(ingredientType: commonIngredient, completionHandler: handleSearchByIngredientResponse(differentDrinks:error:))
+            refresh()
+
+            _ = DrinksAPI.sharedInstance().searchByIngredientRequest(ingredientType: commonIngredient, completionHandler: handleSearchByIngredientResponse(differentDrinks:error:))
            }
             
         }
+    
+    @objc func dismiss(sender: AnyObject) {
+        self.navigationController?.dismiss(animated: true, completion:nil)
+    }
     
     func handleSearchByIngredientResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
         Drinks.sharedArray.fetchedDrinksByIngredient = differentDrinks?.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
@@ -76,12 +90,17 @@ class IngredientsDrinkViewController: UIViewController
     
     
     @objc func refresh(_ sender: AnyObject) {
+        refresh()
+    }
+    
+    func refresh() {
         DispatchQueue.main.async {
             self.ingredientsDictionary.removeAll()
             self.ingredientsTitles.removeAll()
             self.tableView?.reloadData()
         }
     }
+    
 }
 
 
@@ -126,8 +145,6 @@ extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSo
             cell.drinkImage.load(url: url!)
         }
 
-
-
         let oddEven = (indexPath).row  % 2 == 0
 
         switch oddEven {
@@ -157,9 +174,12 @@ extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSo
         if segue.identifier == "ShowDrink" {
             if let destVC = segue.destination as? DrinkViewController
                 {
-             if let indexPath = tableView.indexPathForSelectedRow {
-                let test = Drinks.sharedArray.fetchedDrinksByIngredient![(indexPath).row]
-                    destVC.drink = test
+                if let indexPath = tableView.indexPathForSelectedRow {
+                          let ingredientKey = ingredientsTitles[indexPath.section]
+                          if let ingredientValues = ingredientsDictionary[ingredientKey] {
+                              destVC.drink = ingredientValues[indexPath.row]
+            
+                    }
                 }
             }
         }

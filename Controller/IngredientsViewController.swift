@@ -62,6 +62,13 @@ class IngredientsViewController: UIViewController {
              }
         }
     
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.ingredientDictionary.removeAll()
+            self.ingredientTitles.removeAll()
+            self.tableView?.reloadData()
+        }
+    }
 }
 
 extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -127,12 +134,16 @@ extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueShowCategoryNavigation" {
+            
+
+
             if let destVC = segue.destination as? UINavigationController,
                 let drinkViewController = destVC.topViewController as? IngredientsDrinkViewController {
              if let indexPath = tableView.indexPathForSelectedRow {
-                
-                let ingredient = Drinks.sharedArray.fetchedCompleteIngrediensList![indexPath.row].IngredientStr
-                drinkViewController.commonIngredient = ingredient
+                    let ingredientKey = ingredientTitles[indexPath.section]
+                    if let ingredientValues = ingredientDictionary[ingredientKey] {
+                        drinkViewController.commonIngredient = ingredientValues[indexPath.row]
+                    }
                 }
             }
         }

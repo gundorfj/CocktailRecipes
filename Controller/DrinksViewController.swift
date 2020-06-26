@@ -162,8 +162,6 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
             cell.drinkImage.load(url: url!)
         }
 
-
-
         let oddEven = (indexPath).row  % 2 == 0
 
         switch oddEven {
@@ -181,20 +179,21 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        // Segue to the second view controller
         self.performSegue(withIdentifier: "segueShowDrinkNavigation", sender: self)
     }
 
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         if segue.identifier == "segueShowDrinkNavigation" {
             if let destVC = segue.destination as? UINavigationController,
                 let drinkViewController = destVC.topViewController as? DrinkViewController {
              if let indexPath = tableView.indexPathForSelectedRow {
-                    drinkViewController.drink = Drinks.sharedArray.fetchedDrinks![(indexPath).row]
+                       let ingredientKey = ingredientsTitles[indexPath.section]
+                       if let ingredientValues = ingredientsDictionary[ingredientKey] {
+                           drinkViewController.drink = ingredientValues[indexPath.row]
+                   }
                 }
             }
         }

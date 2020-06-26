@@ -183,9 +183,9 @@
 		FA4AF031248CDE7E00A51CE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAF71BE1248EDE760036100E /* IngredientsViewController.swift */,
 				FA4AEFFF248CCE2300A51CE9 /* FavoritesViewController.swift */,
 				FA4AF001248CCE2300A51CE9 /* DrinksViewController.swift */,
-				FAF71BE1248EDE760036100E /* IngredientsViewController.swift */,
 				FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */,
 				FA1D4E63249AA25B00BCF9CC /* IngredientsDrinkViewController.swift */,
 			);
