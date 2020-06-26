@@ -21,6 +21,7 @@ class IngredientsViewController: UIViewController {
          super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
      }
     
         override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,7 @@ class IngredientsViewController: UIViewController {
               {
             _ = DrinksAPI.sharedInstance().listIngredientsRequest(completionHandler: handleListIngredientResponse(allIngredients:error:))
               }
+
         }
     
     

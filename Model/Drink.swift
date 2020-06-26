@@ -17,5 +17,5 @@ class Drinks
     var fetchedDrinks: [FilterByAlcoholResponse.Drink]?
     var fetchedCompleteIngrediensList: [ListIngredientsResponse.Ingredient]?
     var fetchedDrinksByIngredient: [FilterByAlcoholResponse.Drink]?
-
+    var favDrinks: [FilterByAlcoholResponse.Drink] = []
 }

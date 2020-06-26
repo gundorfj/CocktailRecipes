@@ -18,9 +18,10 @@ struct FilterByAlcoholResponse: Codable {
     
     struct Drink: Codable {
 
-        let DrinkStr : String
+        var DrinkStr : String
         let DrinkThumbStr : String
         let DrinkID : String
+        var HasFavorited : Bool? = false
 
         
         private enum CodingKeys: String, CodingKey

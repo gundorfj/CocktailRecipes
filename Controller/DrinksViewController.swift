@@ -15,23 +15,24 @@ class DrinksViewController: UIViewController {
     var ingredientsDictionary = [String: [FilterByAlcoholResponse.Drink]]()
     var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
-    
+ //   var persistenceController: PersistenceController!
+
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
 
     let nib = UINib(nibName: "DrinkCell",bundle: nil)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        title = "Drinks"
 
        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
        tableView.addSubview(refreshControl)
         
-        self.tableView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellReuseIdentifier: "DrinkCell")
-        
+       self.tableView.register(nib, forCellReuseIdentifier: "DrinkCell")
         
     }
 
@@ -39,7 +40,7 @@ class DrinksViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if ((Drinks.sharedArray.fetchedDrinks?.isEmpty) == nil || tableView.dataSource == nil)
-          {
+        {
             if  (commonIngredient.isEmpty)
             {
                 _ = DrinksAPI.sharedInstance().filterByAlcoholRequest(alcoType: "Alcoholic", completionHandler: handleFilterByAlcoholResponse(differentDrinks:error:))
@@ -115,6 +116,60 @@ class DrinksViewController: UIViewController {
         }
     
     
+    
+    func someMethodIwantToCall(cell: UITableViewCell) {
+        let indexPathTapped = tableView.indexPath(for: cell)
+        
+        
+        print(indexPathTapped!)
+        
+        let ingredientKey = ingredientsTitles[indexPathTapped!.section]
+        if let ingredientValues = ingredientsDictionary[ingredientKey] {
+            let drink = ingredientValues[indexPathTapped!.row]
+            
+            print(drink)
+            
+            let hasFavorited = drink.HasFavorited;
+            
+            if (hasFavorited == false)
+            {
+                Drinks.sharedArray.favDrinks.append(drink)
+            }
+            else
+            {
+                if let index = Drinks.sharedArray.favDrinks.firstIndex(where: { $0.DrinkID == drink.DrinkID })
+                {
+                    Drinks.sharedArray.favDrinks.remove(at: index)
+                }
+            }
+            
+            ingredientsDictionary[ingredientsTitles[indexPathTapped!.section]]![indexPathTapped!.row].HasFavorited = !hasFavorited!
+            
+            cell.accessoryView?.tintColor = drink.HasFavorited! ? UIColor.yellow : .lightGray
+            
+            NotificationCenter.default.post(name: .favoritesChanged, object: nil)
+        }
+    }
+    
+    func storeToFavorites(drink: FilterByAlcoholResponse.Drink, imageView: UIImageView)
+    {
+//            let favDrink = FavDrink(context: persistenceController.viewContext)
+//        favDrink.drinkid = drink.DrinkID
+//        favDrink.drinkstr = drink.DrinkStr
+//        favDrink.images?.drinkthumbstr = drink.DrinkThumbStr
+//        favDrink.images?.rawimage = imageView.image
+//
+//        do {
+//            try persistenceController.viewContext.save()
+//        }
+//        catch{
+//            print("error")
+//        }
+//        vTUserPins.append(pin)
+    }
+    
+    
+    
     @objc func refresh(_ sender: AnyObject) {
         DispatchQueue.main.async {
             self.ingredientsDictionary.removeAll()
@@ -161,26 +216,13 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell") as! DrinkCell
         let drinkKey = ingredientsTitles[indexPath.section]
 
+        cell.link = self
         if let drinkValues = ingredientsDictionary[drinkKey] {
             cell.drinkLabel.text = drinkValues[indexPath.row].DrinkStr
             let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
             cell.drinkImage.load(url: url!)
+            cell.accessoryView?.tintColor = drinkValues[indexPath.row].HasFavorited! ? UIColor.yellow : .lightGray
         }
-
-        let oddEven = (indexPath).row  % 2 == 0
-
-        switch oddEven {
-
-        case true:
-            self.view.backgroundColor = UIColor(red: 0.3529, green: 0.7608, blue: 0.8471, alpha: 1.0)
-            cell.backgroundColor = UIColor(red: 0.3529, green: 0.7608, blue: 0.8471, alpha: 1.0)
-            cell.textLabel?.textColor = UIColor.white
-        case false:
-            self.view.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
-            cell.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
-            cell.textLabel?.textColor = UIColor.white
-        }
-
         return cell
     }
 
@@ -217,4 +259,10 @@ extension UIImageView {
             }
         }
     }
+}
+
+
+extension Notification.Name {
+    static let favoritesChanged = Notification.Name(
+       rawValue: "favoritesChanged")
 }
