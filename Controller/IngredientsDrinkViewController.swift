@@ -34,6 +34,9 @@ class IngredientsDrinkViewController: UIViewController
         self.navigationItem.rightBarButtonItem = closeButton
         
         title = commonIngredient;
+        
+        self.tableView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellReuseIdentifier: "DrinkCell")
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -134,13 +137,14 @@ extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSo
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsDrinksCell") as! IngredientsDrinksCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell") as! DrinkCell
        // let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
 
         let drinkKey = ingredientsTitles[indexPath.section]
 
         if let drinkValues = ingredientsDictionary[drinkKey] {
-            cell.drinkName.text = drinkValues[indexPath.row].DrinkStr
+            cell.drinkLabel.text = drinkValues[indexPath.row].DrinkStr
             let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
             cell.drinkImage.load(url: url!)
         }

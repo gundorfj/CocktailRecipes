@@ -19,6 +19,8 @@ class DrinksViewController: UIViewController {
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
 
+    let nib = UINib(nibName: "DrinkCell",bundle: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -27,6 +29,10 @@ class DrinksViewController: UIViewController {
        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
        tableView.addSubview(refreshControl)
+        
+        self.tableView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellReuseIdentifier: "DrinkCell")
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -151,13 +157,12 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinksCell") as! DrinksCell
-       // let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell") as! DrinkCell
         let drinkKey = ingredientsTitles[indexPath.section]
 
         if let drinkValues = ingredientsDictionary[drinkKey] {
-            cell.drinkName.text = drinkValues[indexPath.row].DrinkStr
+            cell.drinkLabel.text = drinkValues[indexPath.row].DrinkStr
             let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
             cell.drinkImage.load(url: url!)
         }

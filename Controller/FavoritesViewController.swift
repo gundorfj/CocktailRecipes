@@ -10,6 +10,10 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
+    
+    var vfavDrinks: [FavDrink] = []
+    var persistenceController: PersistenceController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
