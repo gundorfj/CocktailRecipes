@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 
 class FavoritesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -88,7 +89,8 @@ class FavoritesViewController: BaseViewController, UITableViewDelegate, UITableV
          
         if (drink.RawImage == nil)
         {
-            cell.drinkImage.load(url: url!)
+            cell.drinkImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
+            })
         }
         else
         {

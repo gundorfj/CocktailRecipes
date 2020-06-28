@@ -94,8 +94,7 @@ class DrinksViewController: BaseViewController {
              }
         }
     
-    func handleFilterByAlcoholResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
-        
+    private func handleFilterByAlcoholResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
         
         guard differentDrinks != nil else {
             DispatchQueue.main.async {
@@ -134,20 +133,7 @@ class DrinksViewController: BaseViewController {
                 }
              }
         }
-    
-    func handlelookUpIngredientsByIDResponse(ingredients: LookUpIngredientsByIDResponse?, error: Error?) {
-        
-        guard let ingredients = ingredients else {
-            return
-        }
-        
-        Drinks.sharedArray.fetchedIngredients = ingredients.Ingredients
-        DispatchQueue.main.async {
-         self.tableView?.reloadData()
-             }
-        }
-    
-    
+
     
     func handleFavorite(cell: UITableViewCell) {
         
@@ -194,7 +180,7 @@ class DrinksViewController: BaseViewController {
         }
     }
     
-    func storeToFavorites(_ drink: FilterByAlcoholResponse.Drink)
+    private func storeToFavorites(_ drink: FilterByAlcoholResponse.Drink)
     {
         let storageDrink = FavoriteDrink(context: persistenceController.viewContext)
         storageDrink.drinkstr = drink.DrinkStr
@@ -215,7 +201,7 @@ class DrinksViewController: BaseViewController {
     
     
     
-    func removeFromFavorites(_ drink: FilterByAlcoholResponse.Drink)
+    private func removeFromFavorites(_ drink: FilterByAlcoholResponse.Drink)
     {
         
         for item in favStorage
@@ -236,7 +222,7 @@ class DrinksViewController: BaseViewController {
         for object in resultData {
              context.delete(object)
          }
-            }
+    }
     
     
     
@@ -291,9 +277,7 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
             cell.drinkLabel.text = drinkValues[indexPath.row].DrinkStr
             let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
             
-
             cell.drinkImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
-                
             })
 
             cell.accessoryView?.tintColor = drinkValues[indexPath.row].HasFavorited! ? UIColor.yellow : .lightGray
@@ -316,20 +300,6 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
                        if let ingredientValues = ingredientsDictionary[ingredientKey] {
                            drinkViewController.drink = ingredientValues[indexPath.row]
                    }
-                }
-            }
-        }
-    }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
                 }
             }
         }

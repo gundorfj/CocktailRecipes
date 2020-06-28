@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class IngredientsDrinkViewController: BaseViewController
 {
@@ -38,15 +39,12 @@ class IngredientsDrinkViewController: BaseViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-       
-        if (ingredientsDictionary.isEmpty == true || tableView.dataSource == nil)
-          {
-            refresh()
+        if (ingredientsDictionary.isEmpty == true || tableView.dataSource == nil) {
+        refresh()
 
-            _ = DrinksAPI.sharedInstance().searchByIngredientRequest(ingredientType: commonIngredient, completionHandler: handleSearchByIngredientResponse(differentDrinks:error:))
-           }
-            
-        }
+        _ = DrinksAPI.sharedInstance().searchByIngredientRequest(ingredientType: commonIngredient, completionHandler: handleSearchByIngredientResponse(differentDrinks:error:))
+       }
+    }
     
     @objc func dismiss(sender: AnyObject) {
         self.navigationController?.dismiss(animated: true, completion:nil)
@@ -136,7 +134,8 @@ extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSo
         if let drinkValues = ingredientsDictionary[drinkKey] {
             cell.drinkLabel.text = drinkValues[indexPath.row].DrinkStr
             let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
-            cell.drinkImage.load(url: url!)
+            cell.drinkImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
+            })
         }
         return cell
     }

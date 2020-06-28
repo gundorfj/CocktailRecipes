@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,6 @@
 		FA4AF03A248D844900A51CE9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF039248D844900A51CE9 /* Drink.swift */; };
 		FA5734532491695C006991BD /* ListIngredientsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5734522491695C006991BD /* ListIngredientsResponse.swift */; };
 		FA57345524916DC9006991BD /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57345424916DC9006991BD /* IngredientCell.swift */; };
-		FA57345724918034006991BD /* DrinksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57345624918034006991BD /* DrinksTableView.swift */; };
 		FA7B5E0C24A8889000EA94A3 /* CocktailRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA7B5E0A24A8889000EA94A3 /* CocktailRecipes.xcdatamodeld */; };
 		FAB57E092490FA6100F4278C /* UITableview+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57E082490FA6100F4278C /* UITableview+extension.swift */; };
 		FADAABD224A5D211001874D0 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADAABD124A5D211001874D0 /* PersistenceController.swift */; };
@@ -89,7 +88,6 @@
 		FA4AF039248D844900A51CE9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		FA5734522491695C006991BD /* ListIngredientsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIngredientsResponse.swift; sourceTree = "<group>"; };
 		FA57345424916DC9006991BD /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
-		FA57345624918034006991BD /* DrinksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTableView.swift; sourceTree = "<group>"; };
 		FA7B5E0B24A8889000EA94A3 /* CocktailRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CocktailRecipes.xcdatamodel; sourceTree = "<group>"; };
 		FAB57E082490FA6100F4278C /* UITableview+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableview+extension.swift"; sourceTree = "<group>"; };
 		FADAABD124A5D211001874D0 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				FB54598E34F7039DA71839BC /* Pods-CocktailRecipesTests.debug.xcconfig */,
 				1DA80D6379BFBB4CEDB57ED1 /* Pods-CocktailRecipesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -162,10 +159,10 @@
 		FA4AEFEF248CCE2300A51CE9 = {
 			isa = PBXGroup;
 			children = (
+				FA4AF031248CDE7E00A51CE9 /* Controller */,
 				FAF9B36024A8EA1D002789FD /* Reachability.swift */,
 				FAE97E0C248FC2A5005685B9 /* Helper.swift */,
 				FA4AF032248CDE8F00A51CE9 /* Model */,
-				FA4AF031248CDE7E00A51CE9 /* Controller */,
 				FA4AF030248CDE7700A51CE9 /* VIew */,
 				FA4AEFFA248CCE2300A51CE9 /* CocktailRecipes */,
 				FA4AF016248CCE2700A51CE9 /* CocktailRecipesTests */,
@@ -222,7 +219,6 @@
 			children = (
 				FAB57E082490FA6100F4278C /* UITableview+extension.swift */,
 				FA57345424916DC9006991BD /* IngredientCell.swift */,
-				FA57345624918034006991BD /* DrinksTableView.swift */,
 				FADAABD624A5E083001874D0 /* DrinkCell.xib */,
 				FADAABD824A5E3F6001874D0 /* DrinkCell.swift */,
 				FAF9B35E24A8E6F7002789FD /* IngredientCell.xib */,
@@ -502,7 +498,6 @@
 			files = (
 				FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */,
 				FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */,
-				FA57345724918034006991BD /* DrinksTableView.swift in Sources */,
 				FAF9B36324A8EB53002789FD /* BaseViewController.swift in Sources */,
 				FA57345524916DC9006991BD /* IngredientCell.swift in Sources */,
 				FA4AF03A248D844900A51CE9 /* Drink.swift in Sources */,

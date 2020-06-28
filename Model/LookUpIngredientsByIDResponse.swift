@@ -11,7 +11,6 @@ import Foundation
 struct LookUpIngredientsByIDResponse: Codable {
 
     var Ingredients: [DrinkIngredients]?
-
     enum CodingKeys: String, CodingKey {
         case Ingredients = "ingredients"
     }

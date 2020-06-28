@@ -21,17 +21,15 @@ class BaseViewController : UIViewController
     {
         if Reachability.isConnectedToNetwork() == true
         {
-            print("Connected")
+            //print("Connected")ß
         }
         else
         {
             let controller = UIAlertController(title: "No Internet Detected", message: "This app requires an Internet connection", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
             controller.addAction(ok)
             controller.addAction(cancel)
-
             present(controller, animated: true, completion: nil)
         }
     }

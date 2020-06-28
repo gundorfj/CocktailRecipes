@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class DrinkViewController: BaseViewController
 {
@@ -18,13 +19,9 @@ class DrinkViewController: BaseViewController
     @IBOutlet weak var IngredientsView: UIView!
     @IBOutlet weak var IngredientsFrameView: UIView!
     @IBOutlet weak var IngredientsLabel: UILabel!
-    
     @IBOutlet weak var IngredientsHeader: PaddingLabel!
-    
     @IBOutlet weak var IngredientsBody: PaddingLabel!
-    
     @IBOutlet weak var InstructionsHeader: PaddingLabel!
-    
     @IBOutlet weak var InstructionsBody: PaddingLabel!
     
     var ingredients: [LookUpIngredientsByIDResponse]?
@@ -58,20 +55,15 @@ class DrinkViewController: BaseViewController
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         let id = Int(drink!.DrinkID)
         _ = DrinksAPI.sharedInstance().lookUpCocktailByIDRequest(id: id!, completionHandler:handleLookUpCocktailByIDRequestResponse  (drinkInformation:error:))
-        
-
     }
     
     func handleLookUpCocktailByIDRequestResponse(drinkInformation: LookUpCocktailByIDResponse?, error: Error?)
     {
-
         guard let drinkInformation = drinkInformation else {
             return
         }
-
         DispatchQueue.main.async {
             self.Cocktail.text = drinkInformation.CockTail?[0].DrinkStr
             self.InstructionsLabel.text = drinkInformation.CockTail?[0].InstructionsStr
@@ -79,7 +71,8 @@ class DrinkViewController: BaseViewController
         }
 
         let url = URL(string: (drinkInformation.CockTail?[0].DrinkThumbStr)!)!
-        CocktailImageView.load(url: url)
+        CocktailImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
+        })
     }
  
     
@@ -87,13 +80,11 @@ class DrinkViewController: BaseViewController
         self.navigationController?.dismiss(animated: true, completion:nil)
     }
     
-    
-    
-    func exstractIngredients(cocktaildata: CockTailData) -> [String: String]
+
+    private func exstractIngredients(cocktaildata: CockTailData) -> [String: String]
     {
         var cocktailsDictionary = Dictionary<String, String>()
-        
-        
+
         cocktailsDictionary[cocktaildata.IngredientStr1!] = cocktaildata.MeasureStr1
         cocktailsDictionary[cocktaildata.IngredientStr2!] = cocktaildata.MeasureStr2
         cocktailsDictionary[cocktaildata.IngredientStr3!] = cocktaildata.MeasureStr3
@@ -129,14 +120,7 @@ class DrinkViewController: BaseViewController
             }
         }
         IngredientsLabel.text = text
-
-        print("Ingredietns: \(String(describing: IngredientsLabel.text))")
-
         return cocktailsDictionary
-    }
-    
-    func addToString ()
-    {
     }
 }
 
