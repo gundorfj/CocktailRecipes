@@ -272,8 +272,17 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.drinkImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
             })
+                        
+            if ((favStorage.firstIndex(where: { $0.drinkid == drinkValues[indexPath.row].DrinkID })) != nil)
+            {
+                ingredientsDictionary[ingredientsTitles[indexPath.section]]![indexPath.row].HasFavorited = true
+            }
+            else
+            {
+                ingredientsDictionary[ingredientsTitles[indexPath.section]]![indexPath.row].HasFavorited = false
+            }
 
-            cell.accessoryView?.tintColor = drinkValues[indexPath.row].HasFavorited! ? UIColor.yellow : .lightGray
+            cell.accessoryView?.tintColor = ingredientsDictionary[ingredientsTitles[indexPath.section]]![indexPath.row].HasFavorited! ? UIColor.yellow : .lightGray
         }
         return cell
     }

@@ -121,6 +121,7 @@ extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueShowCategoryNavigation" {
+
             if let destVC = segue.destination as? UINavigationController,
                 let drinkViewController = destVC.topViewController as? IngredientsDrinkViewController {
              if let indexPath = tableView.indexPathForSelectedRow {

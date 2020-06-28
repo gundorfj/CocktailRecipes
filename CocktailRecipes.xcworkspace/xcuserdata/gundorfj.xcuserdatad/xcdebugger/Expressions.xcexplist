@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "DrinksViewController.tableView(_:cellForRowAt:):DrinksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ingredientsDictionary[ingredientsTitles[indexPath.section]]![indexPath.row]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SceneDelegate.scene(_:willConnectTo:options:):SceneDelegate.swift">
          <PersistentStrings>
             <PersistentString
