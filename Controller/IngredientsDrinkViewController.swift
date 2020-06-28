@@ -18,25 +18,21 @@ class IngredientsDrinkViewController: UIViewController
     var ingredients: [LookUpIngredientsByIDResponse] = []
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
-   // var title: Title = ""
-    
+    var persistenceController: PersistenceController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellReuseIdentifier: "DrinkCell")
+        tableView.addSubview(refreshControl)
 
-       refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-       refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-       tableView.addSubview(refreshControl)
-        
-        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action:  #selector(dismiss))
-
-        self.navigationItem.rightBarButtonItem = closeButton
-        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         title = commonIngredient;
-        
-        self.tableView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellReuseIdentifier: "DrinkCell")
 
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action:  #selector(dismiss))
+        self.navigationItem.rightBarButtonItem = closeButton
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +99,6 @@ class IngredientsDrinkViewController: UIViewController
             self.tableView?.reloadData()
         }
     }
-    
 }
 
 

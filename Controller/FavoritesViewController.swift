@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -15,7 +16,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     var persistenceController: PersistenceController!
-    
+    var favStorage: [FavoriteDrink] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -28,9 +30,52 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                                name: .favoritesChanged,
                                object: nil)
         
+        
+        
+        // fetch request
+
+        let fetchRequest:NSFetchRequest<FavoriteDrink> = FavoriteDrink.fetchRequest()
+
+        if let result = try? persistenceController.viewContext.fetch(fetchRequest){
+            favStorage = result
+            loadTableView()
+        }
+        
+        
+        
         self.tableView.register(nib, forCellReuseIdentifier: "DrinkCell")
         
+        
+        
+        
+        
     }
+    
+    
+    func loadTableView()
+    {
+        Drinks.sharedArray.favDrinks.removeAll()
+        
+        for itm in favStorage
+        {
+            var drk : FilterByAlcoholResponse.Drink!
+            drk.DrinkID = itm.drinkid!
+            drk.DrinkStr = itm.drinkstr!
+            drk.DrinkThumbStr = itm.drinkthumbstr!
+            drk.HasFavorited = true;
+
+            Drinks.sharedArray.favDrinks.append(drk)
+        }
+        tableView.reloadData()
+    }
+    
+    
+    func storeDrink()
+    {
+        
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

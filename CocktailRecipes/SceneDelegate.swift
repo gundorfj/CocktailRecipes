@@ -11,13 +11,38 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let persistenceController = PersistenceController(modelName:"CocktailRecipes")
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        persistenceController.load()
+    
+       // let navVC = window?.rootViewController as! UITabBarController
+        
+        
+//        if let navControllerOne = navVC.viewControllers![1] as? UINavigationController {
+//        let favVC = navControllerOne.viewControllers[0] as! FavoritesViewController
+//        favVC.persistenceController = persistenceController
+//        guard let _ = (scene as? UIWindowScene) else { return }
+//        }
+        
+        guard let mainTabBarVC: UITabBarController = self.window!.rootViewController as? UITabBarController else {fatalError()}
+        guard let navControllerOne = mainTabBarVC.viewControllers![0] as? UINavigationController else { fatalError() }
+        guard let navControllerTwo = mainTabBarVC.viewControllers![1] as? UINavigationController else { fatalError() }
+        guard let navControllerThree = mainTabBarVC.viewControllers![2] as? UINavigationController else { fatalError() }
+        guard let ingredientsVC = navControllerOne.topViewController as? IngredientsViewController else { fatalError() }
+        guard let favoritesVC = navControllerTwo.topViewController as? FavoritesViewController else { fatalError() }
+        guard let drinksVC = navControllerThree.topViewController as? DrinksViewController else { fatalError() }
+
+        ingredientsVC.persistenceController = persistenceController
+        favoritesVC.persistenceController = persistenceController
+        drinksVC.persistenceController = persistenceController
         guard let _ = (scene as? UIWindowScene) else { return }
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

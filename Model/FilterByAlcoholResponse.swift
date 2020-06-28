@@ -19,8 +19,8 @@ struct FilterByAlcoholResponse: Codable {
     struct Drink: Codable {
 
         var DrinkStr : String
-        let DrinkThumbStr : String
-        let DrinkID : String
+        var DrinkThumbStr : String
+        var DrinkID : String
         var HasFavorited : Bool? = false
 
         

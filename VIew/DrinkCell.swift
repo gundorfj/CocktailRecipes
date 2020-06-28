@@ -28,21 +28,15 @@ class DrinkCell : UITableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
 
-      //  backgroundColor = .red
-        
         let starBUtton = UIButton(type: .system)
         starBUtton.setImage(UIImage(named: "starEnabled"), for: .normal)
         starBUtton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-//        starBUtton.tintColor = .yellow
         starBUtton.addTarget(self, action: #selector(handleMarkAsFavorite), for: .touchUpInside)
         accessoryView = starBUtton
-
     }
     
     @objc private func handleMarkAsFavorite() {
-    
-        link?.someMethodIwantToCall(cell: self)
-
+            link?.someMethodIwantToCall(cell: self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

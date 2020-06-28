@@ -11,7 +11,6 @@ import Foundation
 import Foundation
 class Drinks
 {
-    //let fetchingNumberOfStudents: Int = 100
     static let sharedArray = Drinks()
     var fetchedIngredients: [DrinkIngredients]?
     var fetchedDrinks: [FilterByAlcoholResponse.Drink]?

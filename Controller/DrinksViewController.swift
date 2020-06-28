@@ -15,7 +15,7 @@ class DrinksViewController: UIViewController {
     var ingredientsDictionary = [String: [FilterByAlcoholResponse.Drink]]()
     var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
- //   var persistenceController: PersistenceController!
+    var persistenceController: PersistenceController!
 
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
@@ -81,11 +81,24 @@ class DrinksViewController: UIViewController {
         }
     
     func handleFilterByAlcoholResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
+        
+        
+        guard differentDrinks != nil else {
+            DispatchQueue.main.async {
+                if (self.refreshControl.isRefreshing)
+                    {
+                        self.refreshControl.endRefreshing()
+                    }
+                 }
+            return
+        }
+        
         Drinks.sharedArray.fetchedDrinks = differentDrinks?.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
             let drink1 = Drink1.DrinkStr
         let drink2 = Drink2.DrinkStr
         return (drink1.localizedCaseInsensitiveCompare(drink2) == .orderedAscending)})
         
+
         for drink in Drinks.sharedArray.fetchedDrinks! {
             let drinkKey = String(drink.DrinkStr.prefix(1))
                 if var drinkValues = ingredientsDictionary[drinkKey] {
@@ -145,7 +158,7 @@ class DrinksViewController: UIViewController {
             
             ingredientsDictionary[ingredientsTitles[indexPathTapped!.section]]![indexPathTapped!.row].HasFavorited = !hasFavorited!
             
-            cell.accessoryView?.tintColor = drink.HasFavorited! ? UIColor.yellow : .lightGray
+            cell.accessoryView?.tintColor = !hasFavorited! ? UIColor.yellow : .lightGray
             
             NotificationCenter.default.post(name: .favoritesChanged, object: nil)
         }

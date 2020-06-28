@@ -16,6 +16,7 @@ class IngredientsViewController: UIViewController {
     var ingredientDictionary = [String: [String]]()
     var ingredientTitles = [String]()
     var ingredient: [ListIngredientsResponse] = []
+    var persistenceController: PersistenceController!
 
      override func viewDidLoad() {
          super.viewDidLoad()
@@ -42,18 +43,19 @@ class IngredientsViewController: UIViewController {
             let ingredient2 = Ingredient2.IngredientStr
             return (ingredient1.localizedCaseInsensitiveCompare(ingredient2) == .orderedAscending)})
             
-//        for element in Drinks.sharedArray.fetchedCompleteIngrediensList! {
-//          print(element)
-//        }
-        
-        for ingredient in Drinks.sharedArray.fetchedCompleteIngrediensList! {
+
+        guard let unwrappedList = Drinks.sharedArray.fetchedCompleteIngrediensList, Drinks.sharedArray.fetchedCompleteIngrediensList != nil else {
+            return
+        }
+                
+        for ingredient in unwrappedList {
             let ingredientKey = String(ingredient.IngredientStr.prefix(1))
-                if var ingredientValues = ingredientDictionary[ingredientKey] {
-                    ingredientValues.append(ingredient.IngredientStr)
-                    ingredientDictionary[ingredientKey] = ingredientValues
-                } else {
-                    ingredientDictionary[ingredientKey] = [ingredient.IngredientStr]
-                }
+            if var ingredientValues = ingredientDictionary[ingredientKey] {
+                ingredientValues.append(ingredient.IngredientStr)
+                ingredientDictionary[ingredientKey] = ingredientValues
+            } else {
+                ingredientDictionary[ingredientKey] = [ingredient.IngredientStr]
+            }
         }
         
         ingredientTitles = [String](ingredientDictionary.keys)
