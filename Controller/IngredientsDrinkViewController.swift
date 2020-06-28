@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IngredientsDrinkViewController: UIViewController
+class IngredientsDrinkViewController: BaseViewController
 {
     
     @IBOutlet weak var tableView: UITableView!

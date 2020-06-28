@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4105247829209834EDA36980 /* Pods_CocktailRecipesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650F2180B3935337DF95E3B5 /* Pods_CocktailRecipesTests.framework */; };
+		8464AF7E6EEA62A2DE5244D1 /* Pods_CocktailRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CF2EAAF56441D0460E92AF /* Pods_CocktailRecipes.framework */; };
+		96E15B74C0655EE22EDEA2F2 /* Pods_CocktailRecipes_CocktailRecipesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1A7AA3C99F249075A2C79D /* Pods_CocktailRecipes_CocktailRecipesUITests.framework */; };
 		FA1D4E64249AA25B00BCF9CC /* IngredientsDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D4E63249AA25B00BCF9CC /* IngredientsDrinkViewController.swift */; };
 		FA1D4E66249AA41600BCF9CC /* SearchByIngredientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D4E65249AA41600BCF9CC /* SearchByIngredientResponse.swift */; };
 		FA4AEFFC248CCE2300A51CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AEFFB248CCE2300A51CE9 /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 		FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */; };
 		FAF71BE2248EDE760036100E /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BE1248EDE760036100E /* IngredientsViewController.swift */; };
 		FAF9B35D24A8AC63002789FD /* FilterByAlcoholResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9B35C24A8AC63002789FD /* FilterByAlcoholResponse.swift */; };
+		FAF9B35F24A8E6F7002789FD /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9B35E24A8E6F7002789FD /* IngredientCell.xib */; };
+		FAF9B36124A8EA1D002789FD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9B36024A8EA1D002789FD /* Reachability.swift */; };
+		FAF9B36324A8EB53002789FD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9B36224A8EB53002789FD /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C665E299B44F495F86FF032 /* Pods-CocktailRecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailRecipes.debug.xcconfig"; path = "Target Support Files/Pods-CocktailRecipes/Pods-CocktailRecipes.debug.xcconfig"; sourceTree = "<group>"; };
+		1DA80D6379BFBB4CEDB57ED1 /* Pods-CocktailRecipesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailRecipesTests.release.xcconfig"; path = "Target Support Files/Pods-CocktailRecipesTests/Pods-CocktailRecipesTests.release.xcconfig"; sourceTree = "<group>"; };
+		34CF2EAAF56441D0460E92AF /* Pods_CocktailRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1A7AA3C99F249075A2C79D /* Pods_CocktailRecipes_CocktailRecipesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailRecipes_CocktailRecipesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54DE329CA4B73BDC585C1F14 /* Pods-CocktailRecipes-CocktailRecipesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailRecipes-CocktailRecipesUITests.debug.xcconfig"; path = "Target Support Files/Pods-CocktailRecipes-CocktailRecipesUITests/Pods-CocktailRecipes-CocktailRecipesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		650F2180B3935337DF95E3B5 /* Pods_CocktailRecipesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailRecipesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95B8C4E6AF844F46F0FC3D25 /* Pods-CocktailRecipes-CocktailRecipesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailRecipes-CocktailRecipesUITests.release.xcconfig"; path = "Target Support Files/Pods-CocktailRecipes-CocktailRecipesUITests/Pods-CocktailRecipes-CocktailRecipesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F0168092781F8D574F9FC11F /* Pods-CocktailRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailRecipes.release.xcconfig"; path = "Target Support Files/Pods-CocktailRecipes/Pods-CocktailRecipes.release.xcconfig"; sourceTree = "<group>"; };
 		FA1D4E63249AA25B00BCF9CC /* IngredientsDrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsDrinkViewController.swift; sourceTree = "<group>"; };
 		FA1D4E65249AA41600BCF9CC /* SearchByIngredientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByIngredientResponse.swift; sourceTree = "<group>"; };
 		FA4AEFF8248CCE2300A51CE9 /* CocktailRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +101,10 @@
 		FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpIngredientsByIDResponse.swift; sourceTree = "<group>"; };
 		FAF71BE1248EDE760036100E /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
 		FAF9B35C24A8AC63002789FD /* FilterByAlcoholResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterByAlcoholResponse.swift; sourceTree = "<group>"; };
+		FAF9B35E24A8E6F7002789FD /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
+		FAF9B36024A8EA1D002789FD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FAF9B36224A8EB53002789FD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FB54598E34F7039DA71839BC /* Pods-CocktailRecipesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailRecipesTests.debug.xcconfig"; path = "Target Support Files/Pods-CocktailRecipesTests/Pods-CocktailRecipesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8464AF7E6EEA62A2DE5244D1 /* Pods_CocktailRecipes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4105247829209834EDA36980 /* Pods_CocktailRecipesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,15 +128,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E15B74C0655EE22EDEA2F2 /* Pods_CocktailRecipes_CocktailRecipesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9866078379351081A4A6E3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C665E299B44F495F86FF032 /* Pods-CocktailRecipes.debug.xcconfig */,
+				F0168092781F8D574F9FC11F /* Pods-CocktailRecipes.release.xcconfig */,
+				54DE329CA4B73BDC585C1F14 /* Pods-CocktailRecipes-CocktailRecipesUITests.debug.xcconfig */,
+				95B8C4E6AF844F46F0FC3D25 /* Pods-CocktailRecipes-CocktailRecipesUITests.release.xcconfig */,
+				FB54598E34F7039DA71839BC /* Pods-CocktailRecipesTests.debug.xcconfig */,
+				1DA80D6379BFBB4CEDB57ED1 /* Pods-CocktailRecipesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C2703C5A5D176B00B850BFCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34CF2EAAF56441D0460E92AF /* Pods_CocktailRecipes.framework */,
+				3E1A7AA3C99F249075A2C79D /* Pods_CocktailRecipes_CocktailRecipesUITests.framework */,
+				650F2180B3935337DF95E3B5 /* Pods_CocktailRecipesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA4AEFEF248CCE2300A51CE9 = {
 			isa = PBXGroup;
 			children = (
+				FAF9B36024A8EA1D002789FD /* Reachability.swift */,
 				FAE97E0C248FC2A5005685B9 /* Helper.swift */,
 				FA4AF032248CDE8F00A51CE9 /* Model */,
 				FA4AF031248CDE7E00A51CE9 /* Controller */,
@@ -125,6 +171,8 @@
 				FA4AF016248CCE2700A51CE9 /* CocktailRecipesTests */,
 				FA4AF021248CCE2700A51CE9 /* CocktailRecipesUITests */,
 				FA4AEFF9248CCE2300A51CE9 /* Products */,
+				B9866078379351081A4A6E3F /* Pods */,
+				C2703C5A5D176B00B850BFCA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +225,7 @@
 				FA57345624918034006991BD /* DrinksTableView.swift */,
 				FADAABD624A5E083001874D0 /* DrinkCell.xib */,
 				FADAABD824A5E3F6001874D0 /* DrinkCell.swift */,
+				FAF9B35E24A8E6F7002789FD /* IngredientCell.xib */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -190,6 +239,7 @@
 				FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */,
 				FA1D4E63249AA25B00BCF9CC /* IngredientsDrinkViewController.swift */,
 				FADAABD124A5D211001874D0 /* PersistenceController.swift */,
+				FAF9B36224A8EB53002789FD /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA4AF027248CCE2700A51CE9 /* Build configuration list for PBXNativeTarget "CocktailRecipes" */;
 			buildPhases = (
+				5C7CA9F9A2B8F7EA99553C0A /* [CP] Check Pods Manifest.lock */,
 				FA4AEFF4248CCE2300A51CE9 /* Sources */,
 				FA4AEFF5248CCE2300A51CE9 /* Frameworks */,
 				FA4AEFF6248CCE2300A51CE9 /* Resources */,
+				E2D84161BF3AD94976ABE548 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +285,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA4AF02A248CCE2700A51CE9 /* Build configuration list for PBXNativeTarget "CocktailRecipesTests" */;
 			buildPhases = (
+				66498406763A8EAF36ACD079 /* [CP] Check Pods Manifest.lock */,
 				FA4AF00F248CCE2700A51CE9 /* Sources */,
 				FA4AF010248CCE2700A51CE9 /* Frameworks */,
 				FA4AF011248CCE2700A51CE9 /* Resources */,
@@ -251,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA4AF02D248CCE2700A51CE9 /* Build configuration list for PBXNativeTarget "CocktailRecipesUITests" */;
 			buildPhases = (
+				AAB191E2DDAF633956D46A07 /* [CP] Check Pods Manifest.lock */,
 				FA4AF01A248CCE2700A51CE9 /* Sources */,
 				FA4AF01B248CCE2700A51CE9 /* Frameworks */,
 				FA4AF01C248CCE2700A51CE9 /* Resources */,
+				3BB30CCE98870D016529DA3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4AF00D248CCE2600A51CE9 /* LaunchScreen.storyboard in Resources */,
+				FAF9B35F24A8E6F7002789FD /* IngredientCell.xib in Resources */,
 				FA4AF00A248CCE2600A51CE9 /* Assets.xcassets in Resources */,
 				FADAABD724A5E083001874D0 /* DrinkCell.xib in Resources */,
 				FA4AF005248CCE2300A51CE9 /* Main.storyboard in Resources */,
@@ -336,6 +392,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3BB30CCE98870D016529DA3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailRecipes-CocktailRecipesUITests/Pods-CocktailRecipes-CocktailRecipesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailRecipes-CocktailRecipesUITests/Pods-CocktailRecipes-CocktailRecipesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocktailRecipes-CocktailRecipesUITests/Pods-CocktailRecipes-CocktailRecipesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C7CA9F9A2B8F7EA99553C0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailRecipes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66498406763A8EAF36ACD079 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailRecipesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAB191E2DDAF633956D46A07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailRecipes-CocktailRecipesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2D84161BF3AD94976ABE548 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailRecipes/Pods-CocktailRecipes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailRecipes/Pods-CocktailRecipes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocktailRecipes/Pods-CocktailRecipes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA4AEFF4248CCE2300A51CE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -344,6 +503,7 @@
 				FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */,
 				FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */,
 				FA57345724918034006991BD /* DrinksTableView.swift in Sources */,
+				FAF9B36324A8EB53002789FD /* BaseViewController.swift in Sources */,
 				FA57345524916DC9006991BD /* IngredientCell.swift in Sources */,
 				FA4AF03A248D844900A51CE9 /* Drink.swift in Sources */,
 				FA4AF002248CCE2300A51CE9 /* DrinksViewController.swift in Sources */,
@@ -359,6 +519,7 @@
 				FAE97E0D248FC2A5005685B9 /* Helper.swift in Sources */,
 				FAF71BE2248EDE760036100E /* IngredientsViewController.swift in Sources */,
 				FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */,
+				FAF9B36124A8EA1D002789FD /* Reachability.swift in Sources */,
 				FAB57E092490FA6100F4278C /* UITableview+extension.swift in Sources */,
 				FA5734532491695C006991BD /* ListIngredientsResponse.swift in Sources */,
 				FA7B5E0C24A8889000EA94A3 /* CocktailRecipes.xcdatamodeld in Sources */,
@@ -532,6 +693,7 @@
 		};
 		FA4AF028248CCE2700A51CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C665E299B44F495F86FF032 /* Pods-CocktailRecipes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,6 +712,7 @@
 		};
 		FA4AF029248CCE2700A51CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0168092781F8D574F9FC11F /* Pods-CocktailRecipes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -568,6 +731,7 @@
 		};
 		FA4AF02B248CCE2700A51CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB54598E34F7039DA71839BC /* Pods-CocktailRecipesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -590,6 +754,7 @@
 		};
 		FA4AF02C248CCE2700A51CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DA80D6379BFBB4CEDB57ED1 /* Pods-CocktailRecipesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -612,6 +777,7 @@
 		};
 		FA4AF02E248CCE2700A51CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54DE329CA4B73BDC585C1F14 /* Pods-CocktailRecipes-CocktailRecipesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +798,7 @@
 		};
 		FA4AF02F248CCE2700A51CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95B8C4E6AF844F46F0FC3D25 /* Pods-CocktailRecipes-CocktailRecipesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

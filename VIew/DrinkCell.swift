@@ -12,9 +12,8 @@ import UIKit
 class DrinkCell : UITableViewCell
 {
     
+    @IBOutlet weak var drinkLabel: UILabel!    
     @IBOutlet weak var drinkImage: UIImageView!
-    @IBOutlet weak var drinkLabel: UILabel!
-    
     var link: DrinksViewController?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,7 +35,7 @@ class DrinkCell : UITableViewCell
     }
     
     @objc private func handleMarkAsFavorite() {
-            link?.someMethodIwantToCall(cell: self)
+            link?.handleFavorite(cell: self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 
-class DrinksViewController: UIViewController {
+class DrinksViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -61,7 +62,12 @@ class DrinksViewController: UIViewController {
     }
     
     func handleSearchByIngredientResponse(differentDrinks: FilterByAlcoholResponse?, error: Error?) {
-        Drinks.sharedArray.fetchedDrinksByIngredient = differentDrinks?.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
+        
+        guard let differentDrinks = differentDrinks else {
+            return
+        }
+        
+        Drinks.sharedArray.fetchedDrinksByIngredient = differentDrinks.Drinks?.sorted(by: { (Drink1, Drink2) -> Bool in
             let drink1 = Drink1.DrinkStr
         let drink2 = Drink2.DrinkStr
         return (drink1.localizedCaseInsensitiveCompare(drink2) == .orderedAscending)})
@@ -130,7 +136,12 @@ class DrinksViewController: UIViewController {
         }
     
     func handlelookUpIngredientsByIDResponse(ingredients: LookUpIngredientsByIDResponse?, error: Error?) {
-        Drinks.sharedArray.fetchedIngredients = ingredients?.Ingredients
+        
+        guard let ingredients = ingredients else {
+            return
+        }
+        
+        Drinks.sharedArray.fetchedIngredients = ingredients.Ingredients
         DispatchQueue.main.async {
          self.tableView?.reloadData()
              }
@@ -138,7 +149,7 @@ class DrinksViewController: UIViewController {
     
     
     
-    func someMethodIwantToCall(cell: UITableViewCell) {
+    func handleFavorite(cell: UITableViewCell) {
         
         let indexPathTapped = tableView.indexPath(for: cell)
 
@@ -279,7 +290,12 @@ extension DrinksViewController: UITableViewDelegate, UITableViewDataSource {
         if let drinkValues = ingredientsDictionary[drinkKey] {
             cell.drinkLabel.text = drinkValues[indexPath.row].DrinkStr
             let url = URL(string: drinkValues[indexPath.row].DrinkThumbStr)
-            cell.drinkImage.load(url: url!)
+            
+
+            cell.drinkImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
+                
+            })
+
             cell.accessoryView?.tintColor = drinkValues[indexPath.row].HasFavorited! ? UIColor.yellow : .lightGray
         }
         return cell

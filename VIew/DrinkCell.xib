@@ -24,7 +24,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ADW-fu-bFp">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ADW-fu-bFp" customClass="SDAnimatedImageView">
                         <rect key="frame" x="8" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ADW-fu-bFp" secondAttribute="height" multiplier="1:1" id="2Rs-11-3Sa"/>
@@ -42,7 +42,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="drinkImage" destination="ADW-fu-bFp" id="CGw-5i-Ore"/>
+                <outlet property="drinkImage" destination="ADW-fu-bFp" id="2yN-Yt-RRO"/>
                 <outlet property="drinkLabel" destination="n4F-Yo-5uI" id="FfY-Xr-x9z"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="36.160714285714285"/>

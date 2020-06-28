@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import Network
 
-class IngredientsViewController: UIViewController {
+class IngredientsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    
+    let nib = UINib(nibName: "IngredientCell",bundle: nil)
     var ingredientDictionary = [String: [String]]()
     var ingredientTitles = [String]()
     var ingredient: [ListIngredientsResponse] = []
@@ -22,23 +25,26 @@ class IngredientsViewController: UIViewController {
          super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+                self.tableView.register(nib, forCellReuseIdentifier: "IngredientCell")
      }
     
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            
-            if ((Drinks.sharedArray.fetchedCompleteIngrediensList?.isEmpty) == nil)
-              {
-            _ = DrinksAPI.sharedInstance().listIngredientsRequest(completionHandler: handleListIngredientResponse(allIngredients:error:))
-              }
-
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if ((Drinks.sharedArray.fetchedCompleteIngrediensList?.isEmpty) == nil)
+          {
+        _ = DrinksAPI.sharedInstance().listIngredientsRequest(completionHandler: handleListIngredientResponse(allIngredients:error:))
+          }
+    }
     
     
     func handleListIngredientResponse(allIngredients: ListIngredientsResponse?, error: Error?) {
+        
+        guard let allIngredients = allIngredients else {
+            return
+        }
 
-        Drinks.sharedArray.fetchedCompleteIngrediensList = allIngredients?.Ingredients?.sorted(by: { (Ingredient1, Ingredient2) -> Bool in
+        Drinks.sharedArray.fetchedCompleteIngrediensList = allIngredients.Ingredients?.sorted(by: { (Ingredient1, Ingredient2) -> Bool in
             let ingredient1 = Ingredient1.IngredientStr
             let ingredient2 = Ingredient2.IngredientStr
             return (ingredient1.localizedCaseInsensitiveCompare(ingredient2) == .orderedAscending)})
@@ -78,17 +84,14 @@ class IngredientsViewController: UIViewController {
 extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // 1
         return ingredientTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 2
         let ingredientsKey = ingredientTitles[section]
         if let ingredientsValues = ingredientDictionary[ingredientsKey] {
             return ingredientsValues.count
         }
-            
         return 0
     }
     
@@ -100,31 +103,12 @@ extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource 
         return ingredientTitles
     }
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
         let ingredientKey = ingredientTitles[indexPath.section]
         if let ingredientValues = ingredientDictionary[ingredientKey] {
             cell.ingredientName.text = ingredientValues[indexPath.row]
         }
-      //  cell.ingredientName.text = drink.IngredientStr
-        
-//        cell.drinkImage.load(url: url!)
-        
-        let oddEven = (indexPath).row  % 2 == 0
-        
-        switch oddEven {
-
-        case true:
-            self.view.backgroundColor = UIColor(red: 0.3529, green: 0.7608, blue: 0.8471, alpha: 1.0)
-            cell.backgroundColor = UIColor(red: 0.3529, green: 0.7608, blue: 0.8471, alpha: 1.0)
-            cell.textLabel?.textColor = UIColor.white
-        case false:
-            self.view.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
-            cell.backgroundColor = UIColor(red: 0.9882, green: 0.5804, blue: 0.0078, alpha: 1.0)
-            cell.textLabel?.textColor = UIColor.white
-        }
-        
         return cell
     }
     
@@ -135,7 +119,6 @@ extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource 
         self.performSegue(withIdentifier: "segueShowCategoryNavigation", sender: self)
     }
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueShowCategoryNavigation" {
             

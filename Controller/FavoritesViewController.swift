@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoritesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     let nib = UINib(nibName: "DrinkCell",bundle: nil)
@@ -30,8 +30,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                                name: .favoritesChanged,
                                object: nil)
         
-        // fetch request
-
         let fetchRequest:NSFetchRequest<FavoriteDrink> = FavoriteDrink.fetchRequest()
 
         if let result = try? persistenceController.viewContext.fetch(fetchRequest){
@@ -49,38 +47,17 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         for itm in favStorage
         {
-
             let decoder = JSONDecoder()
             var  drink = try! decoder.decode(FilterByAlcoholResponse.Drink.self, from: Data("{}".utf8))
-                
             drink.DrinkID = itm.drinkid!
             drink.DrinkStr = itm.drinkstr!
             drink.DrinkThumbStr = itm.drinkthumbstr!
             drink.RawImage = itm.rawimage!
-
-            print (drink)
             Drinks.sharedArray.favDrinks.append(drink)
-            
         }
 
-        
         tableView.reloadData()
     }
-
-
-    struct User:Codable
-    {
-        var firstName:String
-        var lastName:String
-        var country:String
-
-        enum CodingKeys: String, CodingKey {
-            case firstName = "first_name"
-            case lastName = "last_name"
-            case country = "countr"
-        }
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -93,18 +70,22 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func yourfunction(notfication: NSNotification) {
         
         tableView.reloadData()
-        
     }
     
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell") as! DrinkCell
-        let drink =  Drinks.sharedArray.favDrinks[indexPath.row]
+        var drink =  Drinks.sharedArray.favDrinks[indexPath.row]
 
         cell.drinkLabel.text = drink.DrinkStr
         let url = URL(string: drink.DrinkThumbStr)
-                
+             
+        guard let imageData = try? Data(contentsOf: url!) else {
+            return cell
+        }
+        drink.RawImage = imageData
+         
         if (drink.RawImage == nil)
         {
             cell.drinkImage.load(url: url!)
@@ -135,6 +116,5 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
-    
 }
 

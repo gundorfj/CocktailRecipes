@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DrinkViewController: UIViewController
+class DrinkViewController: BaseViewController
 {
 
     @IBOutlet weak var Cocktail: UILabel!
@@ -67,34 +67,18 @@ class DrinkViewController: UIViewController
     
     func handleLookUpCocktailByIDRequestResponse(drinkInformation: LookUpCocktailByIDResponse?, error: Error?)
     {
-   
 
-        
-        
-        
-        
-        
-        for case let (label?, value) in Mirror(reflecting: drinkInformation?.CockTail?[0] as Any)
-            .children.map({ ($0.label, $0.value) }) {
-                
-                
-            print("label: \(label), value: \(value)")
-                
+        guard let drinkInformation = drinkInformation else {
+            return
         }
 
-
-
-        
         DispatchQueue.main.async {
-            self.Cocktail.text = drinkInformation?.CockTail?[0].DrinkStr
-            self.InstructionsLabel.text = drinkInformation?.CockTail?[0].InstructionsStr
-            
-            _ = self.exstractIngredients(cocktaildata: (drinkInformation?.CockTail?[0])!)
-   
-            
+            self.Cocktail.text = drinkInformation.CockTail?[0].DrinkStr
+            self.InstructionsLabel.text = drinkInformation.CockTail?[0].InstructionsStr
+            _ = self.exstractIngredients(cocktaildata: (drinkInformation.CockTail?[0])!)
         }
 
-        let url = URL(string: (drinkInformation?.CockTail?[0].DrinkThumbStr)!)!
+        let url = URL(string: (drinkInformation.CockTail?[0].DrinkThumbStr)!)!
         CocktailImageView.load(url: url)
     }
  
@@ -153,11 +137,7 @@ class DrinkViewController: UIViewController
     
     func addToString ()
     {
-        
     }
-    
-    
-    
 }
 
 
