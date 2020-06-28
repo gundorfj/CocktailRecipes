@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SceneDelegate.scene(_:willConnectTo:options:):SceneDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navControllerThree.topViewController as? IngredientsViewController ">
+            </PersistentString>
+            <PersistentString
+               value = "navControllerFour.topViewController">
+            </PersistentString>
+            <PersistentString
+               value = "navControllerFour.topViewController as? IngredientsDrinkViewController">
+            </PersistentString>
+            <PersistentString
+               value = "ingredientsVC">
+            </PersistentString>
+            <PersistentString
+               value = "navControllerFour.viewControllers[0] ">
+            </PersistentString>
+            <PersistentString
+               value = "navControllerFour.viewControllers">
+            </PersistentString>
+            <PersistentString
+               value = "drinkVC">
+            </PersistentString>
+            <PersistentString
+               value = "navControllerFour">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

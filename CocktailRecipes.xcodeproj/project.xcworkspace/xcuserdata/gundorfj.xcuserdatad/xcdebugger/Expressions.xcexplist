@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "DrinksViewController.removeFromFavorites(_:):DrinksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "$0.drinkid">
+            </PersistentString>
+            <PersistentString
+               value = "drink.DrinkID">
+            </PersistentString>
+            <PersistentString
+               value = "favStorage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinksAPI.createURLForRequest(_:pathvalue:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "uRL_components.url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinksViewController.someMethodIwantToCall(cell:):DrinksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.imageView?.image">
+            </PersistentString>
+            <PersistentString
+               value = "favStorage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IngredientsViewController.tableView(_:cellForRowAt:):IngredientsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.section">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FavoritesViewController.tableView(_:cellForRowAt:):FavoritesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Drinks.sharedArray">
+            </PersistentString>
+            <PersistentString
+               value = "cell.drinkImage.image">
+            </PersistentString>
+            <PersistentString
+               value = "drink.DrinkStr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.handleFilterByAlcoholResponse(differentDrinks:error:):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "differentDrinks?.Drinks">
+            </PersistentString>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PersistenceController.viewContext.getter:PersistenceController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "persistentContainer.viewContext">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinksViewController.handleFilterByAlcoholResponse(differentDrinks:error:):DrinksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "differentDrinks">
+            </PersistentString>
+            <PersistentString
+               value = "FilterByAlcoholResponse.Drink">
+            </PersistentString>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in FirstViewController.viewWillAppear(_:):FirstViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CategoryViewController.handleListIngredientResponse(allIngredients:error:):CategoryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ingredientTitles">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DrinksAPI.requestDrinksDB(ingredientID:drinkparameter:pathValue:completionHandlerForGET:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "TypeStr">
+            </PersistentString>
+            <PersistentString
+               value = "error.localizedDescription">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IngredientsViewController.prepare(for:sender:):IngredientsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "drinkViewController.commonIngredient">
+            </PersistentString>
+            <PersistentString
+               value = "ingredientKey">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DrinksAPI.requestDrinksDB(drinkparameter:pathValue:completionHandlerForGET:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "decodedData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SecondViewController.viewWillAppear(_:):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rinks.sharedArray.fetchedDrinks?[0]">
+            </PersistentString>
+            <PersistentString
+               value = "ingredients?.Ingredients">
+            </PersistentString>
+            <PersistentString
+               value = "ingredients">
+            </PersistentString>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinks?[0].Ingredients ">
+            </PersistentString>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CategoryViewController.numberOfSections(in:):CategoryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ingredientTitles.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main:AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DrinksAPI.Endpoint.url.getter:DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "stringValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in DrinkViewController.handleLookUpCocktailByIDRequestResponse(drinkInformation:error:):DrinkViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "drinkInformation?.CockTail?[0].DrinkStr">
+            </PersistentString>
+            <PersistentString
+               value = "mirror">
+            </PersistentString>
+            <PersistentString
+               value = "drinkInformation?.CockTail?[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.handleBreedsListResponse(ingredients:error:):SecondViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DrinksAPI.requestDrinksDB(drinkparameter:pathValue:completionHandlerForGET:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request">
+            </PersistentString>
+            <PersistentString
+               value = "request.url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DrinksAPI.lookUpIngredientsByIDRequest(id:completionHandler:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FavoritesViewController.viewDidLoad():FavoritesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "persistenceController.viewContext.fetch(fetchRequest)">
+            </PersistentString>
+            <PersistentString
+               value = "persistenceController">
+            </PersistentString>
+            <PersistentString
+               value = "fetchRequest">
+            </PersistentString>
+            <PersistentString
+               value = "persistenceController.viewContext">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IngredientsViewController.handleListIngredientResponse(allIngredients:error:):IngredientsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedCompleteIngrediensList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.tableView(_:numberOfRowsInSection:):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in SecondViewController.viewWillAppear(_:):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ingredients">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinksAPI.createDrinksRequest(MyUrl:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IngredientsDrinkViewController.viewWillAppear(_:):IngredientsDrinkViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinksByIngredient ">
+            </PersistentString>
+            <PersistentString
+               value = "Drinks.sharedArray.fetchedDrinksByIngredient">
+            </PersistentString>
+            <PersistentString
+               value = "ingredientsDictionary">
+            </PersistentString>
+            <PersistentString
+               value = "tableView.dataSource">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Result.Ingredients.init(from:):Ingredients.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IngredientID">
+            </PersistentString>
+            <PersistentString
+               value = "TypeStr">
+            </PersistentString>
+            <PersistentString
+               value = "DescriptionStr">
+            </PersistentString>
+            <PersistentString
+               value = "IngredientStr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinksAPI.createURLForRequest(_:_:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "uRL_components.host ">
+            </PersistentString>
+            <PersistentString
+               value = "queryItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IngredientsViewController.viewWillAppear(_:):IngredientsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(Drinks.sharedArray.fetchedCompleteIngrediensList?.isEmpty)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SceneDelegate.scene(_:willConnectTo:options:):SceneDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navControllerOne.viewControllers[0]">
+            </PersistentString>
+            <PersistentString
+               value = "navControllerOne.topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DrinksAPI.functionGetIngredientByID(ingredientID:completionhandler:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data">
+            </PersistentString>
+            <PersistentString
+               value = "Ingredients">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinksAPI.searchByIngredientRequest(ingredientType:completionHandler:):DrinksAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Endpoint.searchByIngredient(ingredientType).url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IngredientsResponse.init(from:):Ingredients.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rawResponse.results">
+            </PersistentString>
+            <PersistentString
+               value = "ingree">
+            </PersistentString>
+            <PersistentString
+               value = "rawResponse.results![0]">
+            </PersistentString>
+            <PersistentString
+               value = "container">
+            </PersistentString>
+            <PersistentString
+               value = "decoder">
+            </PersistentString>
+            <PersistentString
+               value = "rawResponse">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkViewController.exstractIngredients(cocktaildata:):DrinkViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DrinksViewController.removeFromFavorites(_:):DrinksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "index">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkCell.handleMarkAsFavorite():DrinkCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "link">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.tableView(_:cellForRowAt:):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.name">
+            </PersistentString>
+            <PersistentString
+               value = "cell.drinkName.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FavoritesViewController.loadTableView():FavoritesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+            <PersistentString
+               value = "favStorage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkViewController.dismiss(sender:):DrinkViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
