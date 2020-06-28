@@ -21,15 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         persistenceController.load()
     
-       // let navVC = window?.rootViewController as! UITabBarController
-        
-        
-//        if let navControllerOne = navVC.viewControllers![1] as? UINavigationController {
-//        let favVC = navControllerOne.viewControllers[0] as! FavoritesViewController
-//        favVC.persistenceController = persistenceController
-//        guard let _ = (scene as? UIWindowScene) else { return }
-//        }
-        
         guard let mainTabBarVC: UITabBarController = self.window!.rootViewController as? UITabBarController else {fatalError()}
         guard let navControllerOne = mainTabBarVC.viewControllers![0] as? UINavigationController else { fatalError() }
         guard let navControllerTwo = mainTabBarVC.viewControllers![1] as? UINavigationController else { fatalError() }

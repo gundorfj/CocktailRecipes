@@ -4,8 +4,9 @@
         <attribute name="drinkid" optional="YES" attributeType="String"/>
         <attribute name="drinkstr" optional="YES" attributeType="String"/>
         <attribute name="drinkthumbstr" optional="YES" attributeType="String"/>
+        <attribute name="rawimage" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
-        <element name="FavoriteDrink" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="FavoriteDrink" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

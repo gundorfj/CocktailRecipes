@@ -31,9 +31,9 @@
 		FAE16125249016E900B792F4 /* LookUpCocktailByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */; };
 		FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */; };
 		FAE97E0D248FC2A5005685B9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE97E0C248FC2A5005685B9 /* Helper.swift */; };
-		FAF71BDE248EB02A0036100E /* FilterByAlcoholResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */; };
 		FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */; };
 		FAF71BE2248EDE760036100E /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF71BE1248EDE760036100E /* IngredientsViewController.swift */; };
+		FAF9B35D24A8AC63002789FD /* FilterByAlcoholResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9B35C24A8AC63002789FD /* FilterByAlcoholResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,9 +84,9 @@
 		FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpCocktailByIDResponse.swift; sourceTree = "<group>"; };
 		FAE97E0A248FACC7005685B9 /* DrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewController.swift; sourceTree = "<group>"; };
 		FAE97E0C248FC2A5005685B9 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByAlcoholResponse.swift; sourceTree = "<group>"; };
 		FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpIngredientsByIDResponse.swift; sourceTree = "<group>"; };
 		FAF71BE1248EDE760036100E /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		FAF9B35C24A8AC63002789FD /* FilterByAlcoholResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterByAlcoholResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,9 +197,9 @@
 		FA4AF032248CDE8F00A51CE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAF9B35C24A8AC63002789FD /* FilterByAlcoholResponse.swift */,
 				FA4AF033248CE2B600A51CE9 /* DrinksAPI.swift */,
 				FA4AF039248D844900A51CE9 /* Drink.swift */,
-				FAF71BDD248EB02A0036100E /* FilterByAlcoholResponse.swift */,
 				FAF71BDF248EB0D20036100E /* LookUpIngredientsByIDResponse.swift */,
 				FAE16124249016E900B792F4 /* LookUpCocktailByIDResponse.swift */,
 				FA5734522491695C006991BD /* ListIngredientsResponse.swift */,
@@ -341,7 +341,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF71BDE248EB02A0036100E /* FilterByAlcoholResponse.swift in Sources */,
 				FA4AF034248CE2B600A51CE9 /* DrinksAPI.swift in Sources */,
 				FAE97E0B248FACC7005685B9 /* DrinkViewController.swift in Sources */,
 				FA57345724918034006991BD /* DrinksTableView.swift in Sources */,
@@ -356,6 +355,7 @@
 				FA4AEFFE248CCE2300A51CE9 /* SceneDelegate.swift in Sources */,
 				FADAABD224A5D211001874D0 /* PersistenceController.swift in Sources */,
 				FAE16125249016E900B792F4 /* LookUpCocktailByIDResponse.swift in Sources */,
+				FAF9B35D24A8AC63002789FD /* FilterByAlcoholResponse.swift in Sources */,
 				FAE97E0D248FC2A5005685B9 /* Helper.swift in Sources */,
 				FAF71BE2248EDE760036100E /* IngredientsViewController.swift in Sources */,
 				FAF71BE0248EB0D20036100E /* LookUpIngredientsByIDResponse.swift in Sources */,

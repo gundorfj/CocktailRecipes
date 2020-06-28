@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DrinksViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class DrinksViewController: UIViewController {
     var ingredientsTitles = [String]()
     var ingredients: [LookUpIngredientsByIDResponse] = []
     var persistenceController: PersistenceController!
+    var favStorage: [FavoriteDrink] = []
 
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
@@ -33,6 +35,12 @@ class DrinksViewController: UIViewController {
        tableView.addSubview(refreshControl)
         
        self.tableView.register(nib, forCellReuseIdentifier: "DrinkCell")
+        
+        let fetchRequest:NSFetchRequest<FavoriteDrink> = FavoriteDrink.fetchRequest()
+
+        if let result = try? persistenceController.viewContext.fetch(fetchRequest){
+            favStorage = result
+        }
         
     }
 
@@ -131,28 +139,37 @@ class DrinksViewController: UIViewController {
     
     
     func someMethodIwantToCall(cell: UITableViewCell) {
+        
         let indexPathTapped = tableView.indexPath(for: cell)
-        
-        
+
         print(indexPathTapped!)
         
         let ingredientKey = ingredientsTitles[indexPathTapped!.section]
         if let ingredientValues = ingredientsDictionary[ingredientKey] {
-            let drink = ingredientValues[indexPathTapped!.row]
+            var drink = ingredientValues[indexPathTapped!.row]
             
-            print(drink)
+
+            let imageURL = URL(string: drink.DrinkThumbStr)
+            guard let imageData = try? Data(contentsOf: imageURL!) else {
+                print("Image does not exist at \(String(describing: imageURL))")
+                return
+            }
+            drink.RawImage = imageData
+            
             
             let hasFavorited = drink.HasFavorited;
             
             if (hasFavorited == false)
             {
                 Drinks.sharedArray.favDrinks.append(drink)
+                storeToFavorites(drink)
             }
             else
             {
                 if let index = Drinks.sharedArray.favDrinks.firstIndex(where: { $0.DrinkID == drink.DrinkID })
                 {
                     Drinks.sharedArray.favDrinks.remove(at: index)
+                    removeFromFavorites(drink)
                 }
             }
             
@@ -160,26 +177,55 @@ class DrinksViewController: UIViewController {
             
             cell.accessoryView?.tintColor = !hasFavorited! ? UIColor.yellow : .lightGray
             
+            print(drink)
+     
             NotificationCenter.default.post(name: .favoritesChanged, object: nil)
         }
     }
     
-    func storeToFavorites(drink: FilterByAlcoholResponse.Drink, imageView: UIImageView)
+    func storeToFavorites(_ drink: FilterByAlcoholResponse.Drink)
     {
-//            let favDrink = FavDrink(context: persistenceController.viewContext)
-//        favDrink.drinkid = drink.DrinkID
-//        favDrink.drinkstr = drink.DrinkStr
-//        favDrink.images?.drinkthumbstr = drink.DrinkThumbStr
-//        favDrink.images?.rawimage = imageView.image
-//
-//        do {
-//            try persistenceController.viewContext.save()
-//        }
-//        catch{
-//            print("error")
-//        }
-//        vTUserPins.append(pin)
+        let storageDrink = FavoriteDrink(context: persistenceController.viewContext)
+        storageDrink.drinkstr = drink.DrinkStr
+        storageDrink.drinkthumbstr = drink.DrinkThumbStr
+        storageDrink.drinkid = drink.DrinkID
+        storageDrink.rawimage = drink.RawImage;
+                
+        do {
+            try persistenceController.viewContext.save()
+        }
+        catch{
+            print("error")
+        }
+        
+        favStorage.append(storageDrink)
+        
     }
+    
+    
+    
+    func removeFromFavorites(_ drink: FilterByAlcoholResponse.Drink)
+    {
+        
+        for item in favStorage
+        {
+            print(item.drinkid!)
+        }
+        
+        favStorage.removeAll(where: { $0.drinkid == drink.DrinkID })
+        
+        print("Remove Count: \(String(describing: favStorage.count))")
+
+        let fetchRequest: NSFetchRequest<FavoriteDrink> = FavoriteDrink.fetchRequest()
+         let context = persistenceController.viewContext
+        fetchRequest.predicate = NSPredicate(format:"drinkid = %@", drink.DrinkID)
+        let result = try? persistenceController.viewContext.fetch(fetchRequest)
+        let resultData = result!
+        
+        for object in resultData {
+             context.delete(object)
+         }
+            }
     
     
     

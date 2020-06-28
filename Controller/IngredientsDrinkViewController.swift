@@ -108,17 +108,14 @@ class IngredientsDrinkViewController: UIViewController
 extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // 1
         return ingredientsTitles.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 2
         let ingredientsKey = ingredientsTitles[section]
         if let ingredientsValues = ingredientsDictionary[ingredientsKey] {
             return ingredientsValues.count
         }
-
         return 0
     }
 
@@ -134,8 +131,6 @@ extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell") as! DrinkCell
-       // let drink =  Drinks.sharedArray.fetchedDrinks![(indexPath).row]
-
         let drinkKey = ingredientsTitles[indexPath.section]
 
         if let drinkValues = ingredientsDictionary[drinkKey] {

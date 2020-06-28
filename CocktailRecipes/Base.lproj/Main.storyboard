@@ -50,6 +50,7 @@
                     <navigationItem key="navigationItem" id="dKq-2w-QQp"/>
                     <connections>
                         <outlet property="tableView" destination="Bkb-fd-6aa" id="f9g-sp-0C6"/>
+                        <segue destination="V6L-7W-jQF" kind="showDetail" identifier="segueShowDrinkNavigation" id="5By-38-e7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -110,11 +111,11 @@
             <objects>
                 <viewController wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="dzS-Ei-h4n" customClass="DrinkViewController" customModule="CocktailRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KQN-vD-JTw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Nf-bG-lL3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5U-tw-6Mb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1621"/>
@@ -303,7 +304,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFg-lo-N1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="-323"/>
+            <point key="canvasLocation" x="1651" y="-366"/>
         </scene>
         <!--Ingredients-->
         <scene sceneID="yeZ-5J-HU6">
@@ -408,7 +409,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XJ9-b6-mlP"/>
+        <segue reference="5By-38-e7l"/>
+        <segue reference="kRr-bv-wG4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="categoryDisabled" width="42.666667938232422" height="42.666667938232422"/>

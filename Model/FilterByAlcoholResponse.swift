@@ -22,6 +22,7 @@ struct FilterByAlcoholResponse: Codable {
         var DrinkThumbStr : String
         var DrinkID : String
         var HasFavorited : Bool? = false
+        var RawImage : Data?
 
         
         private enum CodingKeys: String, CodingKey
@@ -30,13 +31,13 @@ struct FilterByAlcoholResponse: Codable {
             case DrinkThumbStr = "strDrinkThumb"
             case DrinkID = "idDrink"
         }
-
+        
         init(from decoder: Decoder) throws
         {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            DrinkStr = try container.decode(String.self, forKey: .DrinkStr)
-            DrinkThumbStr = try container.decode(String.self, forKey: .DrinkThumbStr)
-            DrinkID = try container.decode(String.self, forKey: .DrinkID)
+            DrinkStr = try container.decodeIfPresent(String.self, forKey: .DrinkStr) ?? ""
+            DrinkThumbStr = try container.decodeIfPresent(String.self, forKey: .DrinkThumbStr) ?? ""
+            DrinkID = try container.decodeIfPresent(String.self, forKey: .DrinkID) ?? ""
         }
     }
 }
