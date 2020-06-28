@@ -203,16 +203,9 @@ class DrinksViewController: BaseViewController {
     
     private func removeFromFavorites(_ drink: FilterByAlcoholResponse.Drink)
     {
-        
-        for item in favStorage
-        {
-            print(item.drinkid!)
-        }
-        
+
         favStorage.removeAll(where: { $0.drinkid == drink.DrinkID })
         
-        print("Remove Count: \(String(describing: favStorage.count))")
-
         let fetchRequest: NSFetchRequest<FavoriteDrink> = FavoriteDrink.fetchRequest()
          let context = persistenceController.viewContext
         fetchRequest.predicate = NSPredicate(format:"drinkid = %@", drink.DrinkID)

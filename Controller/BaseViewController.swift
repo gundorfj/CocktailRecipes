@@ -21,7 +21,7 @@ class BaseViewController : UIViewController
     {
         if Reachability.isConnectedToNetwork() == true
         {
-            //print("Connected")ß
+            //print("Connected")
         }
         else
         {

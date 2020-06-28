@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import CoreData
 
 class IngredientsDrinkViewController: BaseViewController
 {
@@ -20,6 +21,7 @@ class IngredientsDrinkViewController: BaseViewController
     var refreshControl = UIRefreshControl()
     var commonIngredient: String = ""
     var persistenceController: PersistenceController!
+    var favStorage: [FavoriteDrink] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class IngredientsDrinkViewController: BaseViewController
 
         let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action:  #selector(dismiss))
         self.navigationItem.rightBarButtonItem = closeButton
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -100,9 +103,6 @@ class IngredientsDrinkViewController: BaseViewController
 }
 
 
-
-
-
 extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -137,6 +137,7 @@ extension IngredientsDrinkViewController: UITableViewDelegate, UITableViewDataSo
             cell.drinkImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"),options: SDWebImageOptions(rawValue: 0), completed: { image, error, cacheType, imageURL in
             })
         }
+        cell.accessoryView = nil
         return cell
     }
 

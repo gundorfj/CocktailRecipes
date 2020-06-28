@@ -25,13 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let navControllerOne = mainTabBarVC.viewControllers![0] as? UINavigationController else { fatalError() }
         guard let navControllerTwo = mainTabBarVC.viewControllers![1] as? UINavigationController else { fatalError() }
         guard let navControllerThree = mainTabBarVC.viewControllers![2] as? UINavigationController else { fatalError() }
-        guard let ingredientsVC = navControllerOne.topViewController as? IngredientsViewController else { fatalError() }
+        guard let drinksVC = navControllerOne.topViewController as? DrinksViewController else { fatalError() }
         guard let favoritesVC = navControllerTwo.topViewController as? FavoritesViewController else { fatalError() }
-        guard let drinksVC = navControllerThree.topViewController as? DrinksViewController else { fatalError() }
+        guard let ingredientsVC = navControllerThree.topViewController as? IngredientsViewController else { fatalError() }
 
         ingredientsVC.persistenceController = persistenceController
         favoritesVC.persistenceController = persistenceController
         drinksVC.persistenceController = persistenceController
+
         guard let _ = (scene as? UIWindowScene) else { return }
 
     }
